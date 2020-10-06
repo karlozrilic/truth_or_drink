@@ -22,6 +22,8 @@ function App() {
   const bckp = 'https://hn.algolia.com/api/v1/search?query=redux';
   const url = 'https://zrilich.pythonanywhere.com/api/v1/extraDirty/all';
 
+  const footerUrls = ["/", "/dashboard"]
+
   if (localStorage.token == null) {
     localStorage.token = "";
   }
@@ -76,10 +78,10 @@ function App() {
 
             
           </Switch>
-          {window.location.pathname === '/' && <div className="push"></div> }
+          {footerUrls.includes(window.location.pathname) && <div className="push"></div> }
           
         </div>
-        {window.location.pathname === '/' && <Footer /> }
+        {footerUrls.includes(window.location.pathname) && <Footer /> }
       </Router>
      
       
