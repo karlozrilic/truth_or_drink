@@ -58,7 +58,7 @@ function Dashboard(props) {
             <>
                 <div className="dashboard">
                     <div className="dashboard-sidebar">
-                        <a className="dashboard-sidebar-link current" aria-current="page" href="#">Prvi link</a>
+                        <a className="dashboard-sidebar-link current" aria-current="page" href="#">General</a>
                         <a className="dashboard-sidebar-link" href="#">Drugi link</a>
                         <a className="dashboard-sidebar-link" href="#">Treći link</a>
                         <a className="dashboard-sidebar-link" href="#">Četvrti link</a>
