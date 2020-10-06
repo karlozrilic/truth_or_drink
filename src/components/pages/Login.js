@@ -81,7 +81,7 @@ function Login(props) {
                 headers: {'Content-Type': 'application/json'}
             };
             const res = await axios.post(
-                'http://127.0.0.1:5000/api/v1/login', data, config
+                'https://zrilich.pythonanywhere.com/api/v1/login', data, config
             );
             setResult({
                 token: res.data

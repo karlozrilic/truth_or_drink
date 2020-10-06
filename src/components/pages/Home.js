@@ -5,7 +5,6 @@ class Home extends React.Component {
     constructor(props) {
         super(props)
         this.myRef = React.createRef()
-        this.spremiUSession = this.spremiUSession.bind(this);
         this.state = {
             izSessiona: ""
         }
@@ -16,11 +15,6 @@ class Home extends React.Component {
         this.setState({
             izSessiona: localStorage.getItem('session')
         });
-    }
-    
-    spremiUSession() {
-        localStorage.setItem('session', "Spremljeno u session1!");
-        window.location.reload();
     }
 
     render() {
@@ -41,8 +35,6 @@ class Home extends React.Component {
                             <a href="/ontherocks">ON THE ROCKS</a>
                         </div>
                     </div>
-                    <button onClick={this.spremiUSession}>Klikni me!</button>
-                    <p>{this.state.izSessiona}</p>
                 </div>
             </>
         );
