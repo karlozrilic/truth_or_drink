@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+
+const TITLE = "Home";
 
 class Home extends React.Component {
     constructor(props) {
         super(props)
+        document.title = TITLE;
         this.myRef = React.createRef()
         this.state = {
             izSessiona: ""
@@ -20,9 +22,6 @@ class Home extends React.Component {
     render() {
         return (
             <>
-                <Helmet>
-                    <title>Home</title>
-                </Helmet>
                 <div className="home" ref={this.myRef}>
                 <cite className="quote">Pull up a seat, pal. You’ve got a choice: tell the sober truth, or drink up. By the end of the night, we’ll all be better friends 
                 after asking the questions we’ve never dared to ask out loud. If anything, it’s worth a shot. </cite>
