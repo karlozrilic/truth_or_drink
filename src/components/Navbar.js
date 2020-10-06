@@ -7,7 +7,7 @@ function Navbar(props) {
         <>
         <NavbarBoot className="fixed-top text-center" variant="dark" bg="dark" expand="lg">
             <NavbarBoot.Brand href="/" className="navbar-logo">
-                <img src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" width="30" height="30" className="d-inline-block align-top" alt="" loading="lazy" /> Truth or Drink
+                <img src={process.env.PUBLIC_URL + '/logo-light.webp'} /*src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg"*/ width="150" height="45" className="d-inline-block align-top" alt="" loading="lazy" />
             </NavbarBoot.Brand>
             <NavbarBoot.Toggle aria-controls="basic-navbar-nav" />
             <NavbarBoot.Collapse id="basic-navbar-nav" className="justify-content-end">
