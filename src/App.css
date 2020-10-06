@@ -171,6 +171,81 @@
   width: auto;
 }
 
+.dashboard-loading {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  margin: 0;
+}
+.dashboard {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  font-size: 1rem;
+  margin: 0;
+  padding-top: 80px;
+}
+.dashboard-sidebar {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #eaecef;
+}
+.dashboard-sidebar-link {
+  position: relative;
+  display: block;
+  width: 100%;
+  color: black;
+  padding: 8px 16px;
+  border-bottom: 1px solid #eaecef;
+}
+.dashboard-sidebar-link:hover {
+  text-decoration: none;
+  color: inherit;
+  background-color: rgb(218, 218, 218);
+}
+.dashboard-sidebar-link.current {
+  cursor: default;
+}
+
+.dashboard-sidebar-link.current:before, .dashboard-sidebar-link[aria-current]:not([aria-current=false]):before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 2px;
+  content: "";
+  background-color: orange;
+}
+.dashboard-sidebar-link:first-child{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.dashboard-sidebar-link:last-child {
+  border: none;
+  border-bottom-left-radius: 5px;
+}
+.dashboard-sidebar-link:nth-last-child(1) {
+  border: none;
+  border-bottom-left-radius: 5px;
+}
+.dashboard-component {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 4;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid red;
+}
+
+
 @media screen and (max-width: 1600px) {
   .prevNext > button:nth-child(1) {
     margin-left: calc(100%/4);
@@ -197,10 +272,24 @@
   .login-forma {
     width: 30%;
   }
+  .dashboard {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .dashboard-sidebar {
+    width: 60%;
+  }
+  .dashboard-component {
+    width: 90%;
+  }
 }
 
 @media screen and (max-width: 700px) {
   .login-forma {
     width: auto;
+  }
+  .dashboard-sidebar {
+    width: 90%;
   }
 }

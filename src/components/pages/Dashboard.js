@@ -47,7 +47,7 @@ function Dashboard(props) {
     if (state.isLoading) {
         return (
             <>
-            <div className="question">
+            <div className="dashboard-loading">
                 <ReactLoading type={"spin"} color={"grey"} />
                 <h6>Loading dashboard...</h6>
             </div>
@@ -56,13 +56,21 @@ function Dashboard(props) {
     } else {
         return (
             <>
-                <div className="loginForm">
-                    <h1 className="pb-3">Dashboard</h1>
-                    <p>First Name: {data.first_name}</p>
-                    <p>Last Name: {data.last_name}</p>
-                    <p>Email: {data.email}</p>
-                    <small>Created at: {moment(dates.created_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
-                    <small>Updated at: {moment(dates.updated_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
+                <div className="dashboard">
+                    <div className="dashboard-sidebar">
+                        <a className="dashboard-sidebar-link current" aria-current="page" href="#">Prvi link</a>
+                        <a className="dashboard-sidebar-link" href="#">Drugi link</a>
+                        <a className="dashboard-sidebar-link" href="#">Treći link</a>
+                        <a className="dashboard-sidebar-link" href="#">Četvrti link</a>
+                    </div>
+                    <div className="dashboard-component">
+                        <h1 className="pb-3">Dashboard</h1>
+                        <p>First Name: {data.first_name}</p>
+                        <p>Last Name: {data.last_name}</p>
+                        <p>Email: {data.email}</p>
+                        <small>Created at: {moment(dates.created_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
+                        <small>Updated at: {moment(dates.updated_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
+                    </div>
                 </div>
             </>
         )
