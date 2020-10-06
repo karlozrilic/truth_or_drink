@@ -28,10 +28,10 @@ class Home extends React.Component {
                     <div className="odabirWrapper">
                         <h1>Choose category:</h1>
                         <div className="odabir">
-                            <a href="/extradirty">EXTRA DIRTY</a>
-                            <a href="/happyhour">HAPPY HOUR</a>
-                            <a href="/lastcall">LAST CALL</a>
-                            <a href="/ontherocks">ON THE ROCKS</a>
+                            <a className="cat" href="/extradirty">EXTRA DIRTY</a>
+                            <a className="cat" href="/happyhour">HAPPY HOUR</a>
+                            <a className="cat" href="/lastcall">LAST CALL</a>
+                            <a className="cat" href="/ontherocks">ON THE ROCKS</a>
                         </div>
                     </div>
                 </div>
