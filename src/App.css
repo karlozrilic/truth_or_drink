@@ -246,7 +246,7 @@ cite{
   left: 0;
   width: 2px;
   content: "";
-  background-color: orange;
+  background-color: #ffc107;
 }
 .dashboard-sidebar-link:first-child{
   border-top-left-radius: 5px;
