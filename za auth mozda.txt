@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/47201919/how-to-reload-current-page-in-reactjs
