@@ -54,6 +54,28 @@ function Instructions() {
                         <br />
                         <b>8+ players:</b> The first to collect 3 question cards wins.
                     </p>
+                    <div className="with-img">
+                        <img src={process.env.PUBLIC_URL + 'imgs/card-2.png'} width="150" />
+                        <p>
+                            The “With a Twist” deck squeezes a brisk squirt of additional
+                            flavor into the game. Deal 3 <b>Twist Cards</b> to each player at the
+                            start of the game. Players can use these cards to either redirect
+                            an incoming question to a different person, or change something
+                            about the question. 
+                        </p>
+                        <p>
+                            Multiple twist cards can be played in a single round! After each
+                            round, draw more Twist Cards until you have three in your hand.
+                        </p>
+                    </div>
+                    <div className="text-center">
+                        <p>
+                            <img src={process.env.PUBLIC_URL + 'imgs/icon-1.png'} width="40" />Can be played whenever <b>you</b> are asked a question.
+                        </p>
+                        <p>
+                            <img src={process.env.PUBLIC_URL + 'imgs/icon-2.png'} width="40" /> Can be played at any time, even during someone else’s turn.
+                        </p>
+                    </div>
                 </div>
             </div>
         </>
