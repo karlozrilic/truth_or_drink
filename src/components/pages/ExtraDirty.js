@@ -3,7 +3,6 @@ import axios from 'axios';
 import OneQuestion from '../OneQuestion';
 import TwoQuestions from '../TwoQuestions';
 import ReactLoading from 'react-loading';
-
 import Twist from '../Twist';
 
 const TITLE = "Extra Dirty";
@@ -76,7 +75,7 @@ function ExtraDirty() {
                     }
                 </div>
                 </div>
-                <Twist />
+                <Twist color="#e32526" />
             </>
         );
     }

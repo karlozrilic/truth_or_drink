@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Card } from 'react-bootstrap';
+import ReactLoading from 'react-loading';
 
 function Twist(props) {
     const [data, setData] = useState([]);
@@ -18,6 +19,8 @@ function Twist(props) {
 
     const toggleTwist = () => {
         if (opened) {
+            setData([]);
+            setLoading(true);
             setOpened(false);
         } else {
             setOpened(true);
@@ -32,8 +35,8 @@ function Twist(props) {
                         <div className="open-twist opened">
                             <a onClick={toggleTwist}>Open Twist</a>
                         </div>
-                        <div className="twist-content">
-                            Loading...
+                        <div className="twist-content-loading">
+                            <ReactLoading type={"spin"} color={props.color} />
                         </div>
                     </div>
                 </>

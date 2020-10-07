@@ -3,6 +3,7 @@ import axios from 'axios';
 import OneQuestion from '../OneQuestion';
 import TwoQuestions from '../TwoQuestions';
 import ReactLoading from 'react-loading';
+import Twist from '../Twist';
 
 const TITLE = "Happy Hour";
 
@@ -74,6 +75,7 @@ function HappyHour() {
                 }
             </div>
             </div>
+            <Twist color="#ffce00" />
         </>
     );
 }

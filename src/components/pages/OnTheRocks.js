@@ -3,6 +3,7 @@ import axios from 'axios';
 import OneQuestion from '../OneQuestion';
 import TwoQuestions from '../TwoQuestions';
 import ReactLoading from 'react-loading';
+import Twist from '../Twist';
 
 const TITLE = "On The Rocks";
 
@@ -74,6 +75,7 @@ function OnTheRocks() {
                 }
             </div>
             </div>
+            <Twist color="#3b3d95" />
         </>
     );
 }

@@ -345,6 +345,18 @@ red {
   justify-content: space-evenly;
   padding-bottom: 5px;
 }
+.twist-content-loading {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 90%;
+  background-color: rgb(238, 238, 238);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-bottom: 5px;
+}
 .twist-wrap {
   display: flex;
   flex-direction: column;
@@ -417,6 +429,17 @@ red {
   }
   .paper {
     width: 100%;
+  }
+  .twist-content {
+    overflow: scroll;
+    flex-direction: column;
+    padding-bottom: 0;
+    align-items: center;
+    justify-content: stretch;
+  }
+  .twist-kartica {
+    margin: 5px;
+    width: 60%;
   }
 }
 

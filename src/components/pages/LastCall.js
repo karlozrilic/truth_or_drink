@@ -3,6 +3,7 @@ import axios from 'axios';
 import OneQuestion from '../OneQuestion';
 import TwoQuestions from '../TwoQuestions';
 import ReactLoading from 'react-loading';
+import Twist from '../Twist';
 
 const TITLE = "Last Call";
 
@@ -74,6 +75,7 @@ function LastCall() {
                 }
             </div>
             </div>
+            <Twist color="#140f3a" />
         </>
     );
 }
