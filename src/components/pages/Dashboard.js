@@ -8,14 +8,14 @@ const TITLE = "Dashboard";
 
 function Dashboard(props) {
 
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
     const [dates, setDates] = useState({
         created_at: "",
         updated_at: ""
-    })
+    });
     const [state, setState] = useState({
         isLoading: true
-    })
+    });
 
     useEffect(() => {
         document.title = TITLE;

@@ -13,6 +13,8 @@ function Navbar(props) {
             <NavbarBoot.Collapse id="basic-navbar-nav" className="justify-content-end">
                 <Nav className="mr-auto" className="justify-content-end">
                     <Nav.Link href="/" >Home</Nav.Link>
+                    <Nav.Link href="/how-to-play">How to play</Nav.Link>
+                    <Nav.Link href="/categories">Categories</Nav.Link>
                     {!props.valid ?
                         <Nav.Link href="/login" >Login</Nav.Link>
                     :
@@ -21,7 +23,6 @@ function Navbar(props) {
                         <Nav.Link href="/logout" >Log Out</Nav.Link>
                     </>
                     }
-                    <Nav.Link href="/how-to-play">How to play</Nav.Link>
                 </Nav>
             </NavbarBoot.Collapse>
         </NavbarBoot>

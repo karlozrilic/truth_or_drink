@@ -4,6 +4,8 @@ import OneQuestion from '../OneQuestion';
 import TwoQuestions from '../TwoQuestions';
 import ReactLoading from 'react-loading';
 
+import Twist from '../Twist';
+
 const TITLE = "Extra Dirty";
 
 function ExtraDirty() {
@@ -74,6 +76,7 @@ function ExtraDirty() {
                     }
                 </div>
                 </div>
+                <Twist />
             </>
         );
     }

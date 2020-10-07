@@ -15,8 +15,8 @@ function HowToPlay() {
                     <div className="with-img">
                         <img src={process.env.PUBLIC_URL + 'imgs/card-1.png'} width="150" />
                         <p>
-                            The dealer draws a question card and assigns two fellow players to interview each
-                            other. To start the round, hand either player the question card and
+                            The dealer draws a question and assigns two fellow players to interview each
+                            other. To start the round, show either player the question and
                             instruct them which question to ask.
                         </p>
                         <p>
@@ -32,11 +32,11 @@ function HowToPlay() {
                     </p>
                     <p>
                         If both questions have been answered, the dealer judges which interviewee gave
-                        the most satisfying answer, and awards that person the question card as a point.
+                        the most satisfying answer, and awards that person with a point.
                         (If you’re playing with alcohol, the loser takes a drink.) 
                     </p>
                     <p>
-                        Play continues clockwise—the next dealer draws a new question card, and picks
+                        Play continues clockwise—the next dealer draws a new question, and picks
                         any two people to answer. We trust you to be a good sport; try not to ask one
                         person twice before everyone else has been asked once. 
                     </p>
@@ -54,6 +54,7 @@ function HowToPlay() {
                         <br />
                         <b>8+ players:</b> The first to collect 3 question cards wins.
                     </p>
+                    {/* 
                     <div className="with-img">
                         <img src={process.env.PUBLIC_URL + 'imgs/card-2.png'} width="150" />
                         <p>
@@ -68,12 +69,13 @@ function HowToPlay() {
                             round, draw more Twist Cards until you have three in your hand.
                         </p>
                     </div>
+                    */}
                     <div className="text-center">
                         <p>
-                            <img src={process.env.PUBLIC_URL + 'imgs/icon-1.png'} width="40" />Can be played whenever <b>you</b> are asked a question.
+                            <img src={process.env.PUBLIC_URL + 'imgs/icon-1.png'} width="40" /><i>Can be played whenever <b>you</b> are asked a question.</i>
                         </p>
                         <p>
-                            <img src={process.env.PUBLIC_URL + 'imgs/icon-2.png'} width="40" /> Can be played at any time, even during someone else’s turn.
+                            <img src={process.env.PUBLIC_URL + 'imgs/icon-2.png'} width="40" /> <i>Can be played at any time, even during someone else’s turn.</i>
                         </p>
                     </div>
                 </div>

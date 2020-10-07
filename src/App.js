@@ -14,6 +14,7 @@ import Logout from './components/pages/Logout';
 
 import Dashboard from './components/pages/Dashboard';
 import HowToPlay from './components/pages/HowToPlay';
+import Categories from './components/pages/Categories';
 
 import jwt_decode from "jwt-decode";
 
@@ -23,7 +24,7 @@ function App() {
   const bckp = 'https://hn.algolia.com/api/v1/search?query=redux';
   const url = 'https://zrilich.pythonanywhere.com/api/v1/extraDirty/all';
 
-  const footerUrls = ["/", "/dashboard", "/how-to-play"]
+  const footerUrls = ["/", "/dashboard", "/how-to-play", "/categories"]
 
   if (localStorage.token == null) {
     localStorage.token = "";
@@ -77,6 +78,7 @@ function App() {
             </Route>
             <Route path="/dashboard" exact component={Dashboard}/>
             <Route path="/how-to-play" exact component={HowToPlay}/>
+            <Route path="/categories" exact component={Categories}/>
 
             
           </Switch>
