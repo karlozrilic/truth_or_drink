@@ -269,7 +269,7 @@ cite{
 .dashboard-component {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
   margin: 10px;
   padding: 10px;
   border: 1px solid red;
@@ -277,7 +277,7 @@ cite{
 .dashboard-component-loading {
   display: flex;
   flex-direction: column;
-  width: 70%;
+  width: 100%;
   align-items: center;
   justify-content: center;
   height: 100%;
