@@ -13,7 +13,7 @@ import Login from './components/pages/Login';
 import Logout from './components/pages/Logout';
 
 import Dashboard from './components/pages/Dashboard';
-import Instructions from './components/pages/Instructions';
+import HowToPlay from './components/pages/HowToPlay';
 
 import jwt_decode from "jwt-decode";
 
@@ -23,7 +23,7 @@ function App() {
   const bckp = 'https://hn.algolia.com/api/v1/search?query=redux';
   const url = 'https://zrilich.pythonanywhere.com/api/v1/extraDirty/all';
 
-  const footerUrls = ["/", "/dashboard", "/instructions"]
+  const footerUrls = ["/", "/dashboard", "/how-to-play"]
 
   if (localStorage.token == null) {
     localStorage.token = "";
@@ -76,7 +76,7 @@ function App() {
               <Redirect to="/" />
             </Route>
             <Route path="/dashboard" exact component={Dashboard}/>
-            <Route path="/instructions" exact component={Instructions}/>
+            <Route path="/how-to-play" exact component={HowToPlay}/>
 
             
           </Switch>

@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 
-const TITLE = "Instructions";
+const TITLE = "How to play";
 
-function Instructions() {
+function HowToPlay() {
 
     useEffect(() => {
         document.title = TITLE;
@@ -83,4 +83,4 @@ function Instructions() {
 
 }
 
-export default Instructions
+export default HowToPlay

@@ -21,7 +21,7 @@ function Navbar(props) {
                         <Nav.Link href="/logout" >Log Out</Nav.Link>
                     </>
                     }
-                    <Nav.Link href="/instructions">Instructions</Nav.Link>
+                    <Nav.Link href="/how-to-play">How to play</Nav.Link>
                 </Nav>
             </NavbarBoot.Collapse>
         </NavbarBoot>
