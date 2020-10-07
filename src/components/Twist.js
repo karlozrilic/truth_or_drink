@@ -81,11 +81,9 @@ function Twist(props) {
     } else {
         return (
             <>
-
-                    <div className="open-twist closed">
-                        <a onClick={() => { toggleTwist(); fetchData(); }}>Open Twist</a>
-                    </div>
-
+                <div className="open-twist closed">
+                    <a onClick={() => { toggleTwist(); fetchData(); }}>Open Twist</a>
+                </div>
             </>
         )
     }

@@ -366,6 +366,7 @@ red {
   height: 70%;
   display: flex;
   flex-direction: column;
+  transition: height 1s ease-in-out;
 }
 .open-twist.opened > a {
   padding: 10px;
