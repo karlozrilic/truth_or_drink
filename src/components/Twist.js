@@ -7,6 +7,7 @@ function Twist(props) {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [opened, setOpened] = useState(false);
+    const [text, setText] = useState("Open Twist");
 
     const fetchData = async () => {
         const result = await axios(
@@ -22,8 +23,10 @@ function Twist(props) {
             setData([]);
             setLoading(true);
             setOpened(false);
+            setText("Open Twist");
         } else {
             setOpened(true);
+            setText("Close Twist");
         }
     }
 
@@ -33,7 +36,7 @@ function Twist(props) {
                 <>
                     <div className="twist-wrap">
                         <div className="open-twist opened">
-                            <a onClick={toggleTwist}>Open Twist</a>
+                            <a onClick={toggleTwist}>{text}</a>
                         </div>
                         <div className="twist-content-loading">
                             <ReactLoading type={"spin"} color={props.color} />
@@ -46,7 +49,7 @@ function Twist(props) {
                 <>
                     <div className="twist-wrap">
                         <div className="open-twist opened">
-                            <a onClick={toggleTwist}>Open Twist</a>
+                            <a onClick={toggleTwist}>{text}</a>
                         </div>
                         <div className="twist-content">
                         {data.map((dat) =>  
@@ -82,7 +85,7 @@ function Twist(props) {
         return (
             <>
                 <div className="open-twist closed">
-                    <a onClick={() => { toggleTwist(); fetchData(); }}>Open Twist</a>
+                    <a onClick={() => { toggleTwist(); fetchData(); }}>{text}</a>
                 </div>
             </>
         )
