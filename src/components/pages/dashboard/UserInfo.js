@@ -46,10 +46,10 @@ function UserInfo() {
     if (state.isLoading) {
         return (
             <>
-            <div className="dashboard-component-loading">
-                <ReactLoading type={"spin"} color={"grey"} />
-                <h6>Loading user information...</h6>
-            </div>
+                <div className="dashboard-component-loading">
+                    <ReactLoading type={"spin"} color={"grey"} />
+                    <h6>Loading user information...</h6>
+                </div>
             </>
         )
     } else {

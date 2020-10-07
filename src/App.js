@@ -27,7 +27,7 @@ function App() {
   const bckp = 'https://hn.algolia.com/api/v1/search?query=redux';
   const url = 'https://zrilich.pythonanywhere.com/api/v1/extraDirty/all';
 
-  const footerUrls = ["/", "/dashboard/user-info", "/how-to-play", "/categories"]
+  const footerUrls = ["/", "/dashboard/user-info", "/dashboard/suggest-question", "/how-to-play", "/categories"]
 
   if (localStorage.token == null) {
     localStorage.token = "";
@@ -85,7 +85,6 @@ function App() {
             <Route path="/dashboard/suggest-question" exact >
               <Dashboard comp={SuggestQuestion} current={1} />
             </Route>
-            <Route path="/dashboard/suggest-question" exact component={Dashboard}/>
             <Route path="/how-to-play" exact component={HowToPlay}/>
             <Route path="/categories" exact component={Categories}/>
 

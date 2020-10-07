@@ -83,11 +83,3 @@ function ExtraDirty() {
 }
 
 export default ExtraDirty;
-
-//{data.map(item => (
-//    item.questions === 1 ? (
-//        <OneQuestion inp={item} />
-//    ) : (
-//        <TwoQuestions inp={item} />
-//    )
-//))}

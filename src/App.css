@@ -223,6 +223,7 @@ cite{
   margin: 10px;
   border-radius: 5px;
   border: 1px solid #eaecef;
+  max-width: 300px;
 }
 .dashboard-sidebar-link {
   display: flex;
@@ -436,6 +437,7 @@ red {
   }
   .dashboard-sidebar {
     width: 60%;
+    max-width: none;
   }
   .dashboard-component {
     width: 90%;
