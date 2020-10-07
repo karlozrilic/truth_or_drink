@@ -69,11 +69,7 @@ function App() {
             <Route path="/lastcall" exact component={LastCall} />
             <Route path="/ontherocks" exact component={OnTheRocks} />
             <Route path="/login" exact>
-              {!valid ?
-                <Login />
-              :
-                <Redirect to="/dashboard/user-info" />
-              }
+            {!valid ? <Login /> : <Redirect to="/dashboard/user-info" />}
             </Route>
             <Route path="/logout" exact>
               <Logout/>
