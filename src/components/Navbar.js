@@ -19,7 +19,7 @@ function Navbar(props) {
                         <Nav.Link href="/login" >Login</Nav.Link>
                     :
                     <>
-                        <Nav.Link href="/dashboard" >Dashboard</Nav.Link>
+                        <Nav.Link href="/dashboard/user-info" >Dashboard</Nav.Link>
                         <Nav.Link href="/logout" >Log Out</Nav.Link>
                     </>
                     }

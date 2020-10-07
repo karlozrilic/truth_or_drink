@@ -12,9 +12,12 @@ import OnTheRocks from './components/pages/OnTheRocks';
 import Login from './components/pages/Login';
 import Logout from './components/pages/Logout';
 
-import Dashboard from './components/pages/Dashboard';
+import Dashboard from './components/pages/Dashboard.js';
 import HowToPlay from './components/pages/HowToPlay';
 import Categories from './components/pages/Categories';
+
+import UserInfo from './components/pages/dashboard/UserInfo';
+import SuggestQuestion from './components/pages/dashboard/SuggestQuestion';
 
 import jwt_decode from "jwt-decode";
 
@@ -24,7 +27,7 @@ function App() {
   const bckp = 'https://hn.algolia.com/api/v1/search?query=redux';
   const url = 'https://zrilich.pythonanywhere.com/api/v1/extraDirty/all';
 
-  const footerUrls = ["/", "/dashboard", "/how-to-play", "/categories"]
+  const footerUrls = ["/", "/dashboard/user-info", "/how-to-play", "/categories"]
 
   if (localStorage.token == null) {
     localStorage.token = "";
@@ -69,14 +72,20 @@ function App() {
               {!valid ?
                 <Login />
               :
-                <Redirect to="/dashboard" />
+                <Redirect to="/dashboard/user-info" />
               }
             </Route>
             <Route path="/logout" exact>
               <Logout/>
               <Redirect to="/" />
             </Route>
-            <Route path="/dashboard" exact component={Dashboard}/>
+            <Route path="/dashboard/user-info" exact >
+              <Dashboard comp={UserInfo} current={0} />
+            </Route>
+            <Route path="/dashboard/suggest-question" exact >
+              <Dashboard comp={SuggestQuestion} current={1} />
+            </Route>
+            <Route path="/dashboard/suggest-question" exact component={Dashboard}/>
             <Route path="/how-to-play" exact component={HowToPlay}/>
             <Route path="/categories" exact component={Categories}/>
 
