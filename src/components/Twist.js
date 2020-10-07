@@ -5,6 +5,7 @@ import ReactLoading from 'react-loading';
 
 function Twist(props) {
     const [data, setData] = useState([]);
+    const [fetched, setFetched] = useState(false);
     const [loading, setLoading] = useState(true);
     const [opened, setOpened] = useState(false);
     const [text, setText] = useState("Open Twist");
@@ -15,20 +16,23 @@ function Twist(props) {
         );
         setData(result.data);
         setLoading(false);
+        setFetched(true);
     };
-
 
     const toggleTwist = () => {
         if (opened) {
-            setData([]);
-            setLoading(true);
             setOpened(false);
             setText("Open Twist");
         } else {
             setOpened(true);
-            setText("Close Twist");
+            setText("Hide Twist");
         }
-    }
+    };
+
+    const refresh = () => {
+        setLoading(true);
+        fetchData();
+    };
 
     if (opened) {
         if (loading) {
@@ -37,6 +41,7 @@ function Twist(props) {
                     <div className="twist-wrap">
                         <div className="open-twist opened">
                             <a onClick={toggleTwist}>{text}</a>
+                            <a onClick={refresh}>Refresh</a>
                         </div>
                         <div className="twist-content-loading">
                             <ReactLoading type={"spin"} color={props.color} />
@@ -50,6 +55,7 @@ function Twist(props) {
                     <div className="twist-wrap">
                         <div className="open-twist opened">
                             <a onClick={toggleTwist}>{text}</a>
+                            <a onClick={refresh}>Refresh</a>
                         </div>
                         <div className="twist-content">
                         {data.map((dat) =>  
@@ -82,13 +88,23 @@ function Twist(props) {
             )
         }
     } else {
-        return (
-            <>
-                <div className="open-twist closed">
-                    <a onClick={() => { toggleTwist(); fetchData(); }}>{text}</a>
-                </div>
-            </>
-        )
+        if (fetched) {
+            return (
+                <>
+                    <div className="open-twist closed">
+                        <a onClick={toggleTwist}>{text}</a>
+                    </div>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <div className="open-twist closed">
+                        <a onClick={() => { toggleTwist(); fetchData(); }}>{text}</a>
+                    </div>
+                </>
+            )
+        }
     }
 
 }
