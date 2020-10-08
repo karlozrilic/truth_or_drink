@@ -79,7 +79,7 @@ function App() {
             <Route path="/how-to-play" exact component={HowToPlay}/>
             <Route path="/categories" exact component={Categories}/>
             <Route path="/login" exact>
-              {!valid ? <Login /> : <Redirect to="/dashboard/user-info" />}
+              {!valid ? <Login /> : <Redirect push to="/dashboard/user-info" />}
             </Route>
             <Route path="/logout" exact>
                 <Logout/>
@@ -87,7 +87,7 @@ function App() {
             {valid && 
             <>
               <Route path="/dashboard" exact>
-                <Redirect to="/dashboard/user-info" />
+                <Redirect push to="/dashboard/user-info" />
               </Route>
               <Route path="/dashboard/user-info" exact >
                 <Dashboard token={localStorage.token} comp={UserInfo} current={0} />

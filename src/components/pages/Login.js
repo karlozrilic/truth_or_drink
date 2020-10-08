@@ -144,7 +144,7 @@ function Login(props) {
             } else {
                 return (
                     <>
-                        <Redirect to="/dashboard/user-info" />
+                        <Redirect push to="/dashboard/user-info" />
                     </>
                 )
             }
@@ -157,20 +157,20 @@ function Login(props) {
                     <h1 className="pb-3">Login</h1>
                     {props.error ?
                         <Form className="text-center login-forma">
-                        <Form.Group className="left-center" controlId="formBasicEmail">
+                        <Form.Group className="left-text" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control value={email} onChange={onChangeEmail} type="email" placeholder="Enter email" />
                             <Form.Text id="email-error" className="text-muted">
                             </Form.Text>
                         </Form.Group>
     
-                        <Form.Group className="left-center" controlId="formBasicPassword">
+                        <Form.Group className="left-text" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control value={password} onChange={onChangePassword} type="password" placeholder="Password" />
                             <Form.Text id="password-error" className="text-muted">
                             </Form.Text>
                         </Form.Group>
-                        <Form.Group className="left-center" controlId="formBasicCheckbox">
+                        <Form.Group className="left-text" controlId="formBasicCheckbox">
                             <Form.Check /*checked={isChecked}*/ onChange={onChangeCheckbox} type="checkbox" label="Remember me" />
                         </Form.Group>
                         <Alert variant="danger">

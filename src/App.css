@@ -16,11 +16,16 @@
 .footer-container, .push {
   height: 50px; /* .push must be the same height as .footer */
 }
-.left-center {
+.left-text {
   text-align: left !important;
 }
 .navbar {
   font-weight: 600;
+}
+.dropdown-menu-center {
+  right: 0% !important;
+  right: auto !important;
+  transform: translate(-50%, 0) !important;
 }
 .home {
   display: flex;
@@ -208,7 +213,8 @@ cite{
 }
 .dashboard {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
@@ -413,6 +419,11 @@ red {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+/* suggest question */
+.toggle-questions-button {
+  margin: 10px;
 }
 
 @media screen and (max-width: 1600px) {

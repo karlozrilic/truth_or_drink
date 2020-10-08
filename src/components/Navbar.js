@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { Navbar as NavbarBoot, Nav } from 'react-bootstrap';
+import React from 'react';
+import { Navbar as NavbarBoot, Nav, NavDropdown } from 'react-bootstrap';
 
 function Navbar(props) {
 
@@ -19,8 +19,19 @@ function Navbar(props) {
                         <Nav.Link href="/login" >Login</Nav.Link>
                     :
                     <>
-                        <Nav.Link href="/dashboard/user-info" >Dashboard</Nav.Link>
-                        <Nav.Link href="/logout" >Log Out</Nav.Link>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Profile
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="/dashboard/user-info">User info</a>
+                                <a class="dropdown-item" href="/dashboard/suggest-question">Suggest question</a>
+                                <a class="dropdown-item" href="/dashboard/3">Another action</a>
+                                <a class="dropdown-item" href="/dashboard/4">Something else here</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/logout">Logout</a>
+                            </div>
+                        </li>
                     </>
                     }
                 </Nav>
