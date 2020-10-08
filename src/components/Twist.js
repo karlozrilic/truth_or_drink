@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Card, Button } from 'react-bootstrap';
 import ReactLoading from 'react-loading';
+import { TransitionGroup } from 'react-transition-group';
 
 function Twist() {
     const [data, setData] = useState([]);
@@ -46,14 +47,13 @@ function Twist() {
         const result = await axios(
             'https://zrilich.pythonanywhere.com/api/v1/twist/random?num=1'
         );
-        console.log(result.data[0])
         const temp = result.data[0];
-        console.log(temp);
         const temp2 = data;
-        console.log(temp2);
         temp2[index] = temp;
-        console.log(temp2);
-        setData(temp2);
+        setTimeout(function() {
+            setData(temp2);
+        }, 3000); 
+        
         setLoadingTwist({
             index: null,
             isLoading: false
@@ -78,11 +78,13 @@ function Twist() {
         } else {
             return (
                 <>
+                
                     <div className="twist-wrap">
                         <div className="open-twist opened">
                             <a onClick={toggleTwist}>{text}</a>
                             <a onClick={refresh}>Refresh all</a>
                         </div>
+                        
                         <div className="twist-content">
                         {data.map((dat, index) =>  
                             <>
@@ -123,16 +125,20 @@ function Twist() {
         if (fetched) {
             return (
                 <>
-                    <div className="open-twist closed">
-                        <a onClick={toggleTwist}>{text}</a>
+                    <div className="twist-wrap">
+                        <div className="open-twist closed">
+                            <a onClick={toggleTwist}>{text}</a>
+                        </div>
                     </div>
                 </>
             )
         } else {
             return (
                 <>
-                    <div className="open-twist closed">
-                        <a onClick={() => { toggleTwist(); fetchData(); }}>{text}</a>
+                    <div className="twist-wrap">
+                        <div className="open-twist closed">
+                            <a onClick={() => { toggleTwist(); fetchData(); }}>{text}</a>
+                        </div>
                     </div>
                 </>
             )
