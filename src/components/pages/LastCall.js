@@ -75,7 +75,7 @@ function LastCall() {
                 }
             </div>
             </div>
-            <Twist color="#140f3a" />
+            <Twist />
         </>
     );
 }

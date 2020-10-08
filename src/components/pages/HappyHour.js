@@ -75,7 +75,7 @@ function HappyHour() {
                 }
             </div>
             </div>
-            <Twist color="#ffce00" />
+            <Twist />
         </>
     );
 }

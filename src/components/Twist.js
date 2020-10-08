@@ -1,12 +1,16 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import ReactLoading from 'react-loading';
 
-function Twist(props) {
+function Twist() {
     const [data, setData] = useState([]);
     const [fetched, setFetched] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [loadingTwist, setLoadingTwist] = useState({
+        index: null,
+        isLoading: false
+    });
     const [opened, setOpened] = useState(false);
     const [text, setText] = useState("Open Twist");
 
@@ -33,6 +37,28 @@ function Twist(props) {
         setLoading(true);
         fetchData();
     };
+    
+    const ispisi = async (index) => {
+        setLoadingTwist({
+            index: index,
+            isLoading: true
+        });
+        const result = await axios(
+            'https://zrilich.pythonanywhere.com/api/v1/twist/random?num=1'
+        );
+        console.log(result.data[0])
+        const temp = result.data[0];
+        console.log(temp);
+        const temp2 = data;
+        console.log(temp2);
+        temp2[index] = temp;
+        console.log(temp2);
+        setData(temp2);
+        setLoadingTwist({
+            index: null,
+            isLoading: false
+        });
+    }
 
     if (opened) {
         if (loading) {
@@ -41,10 +67,10 @@ function Twist(props) {
                     <div className="twist-wrap">
                         <div className="open-twist opened">
                             <a onClick={toggleTwist}>{text}</a>
-                            <a onClick={refresh}>Refresh</a>
+                            <a onClick={refresh}>Refresh all</a>
                         </div>
                         <div className="twist-content-loading">
-                            <ReactLoading type={"spin"} color={props.color} />
+                            <ReactLoading type={"spin"} color={"#bfd430"} />
                         </div>
                     </div>
                 </>
@@ -55,13 +81,18 @@ function Twist(props) {
                     <div className="twist-wrap">
                         <div className="open-twist opened">
                             <a onClick={toggleTwist}>{text}</a>
-                            <a onClick={refresh}>Refresh</a>
+                            <a onClick={refresh}>Refresh all</a>
                         </div>
                         <div className="twist-content">
-                        {data.map((dat) =>  
+                        {data.map((dat, index) =>  
                             <>
-                                <Card className="twist-kartica">
-                                    <Card.Body>
+                                <Card className="twist-kartica loading">
+                                {loadingTwist.index != null && loadingTwist.index === index ? 
+                                <>
+                                    <ReactLoading type={"spin"} color={"#bfd430"} />
+                                </>
+                                :
+                                <Card.Body>
                                         <Card.Title as="h6" className="bolder text-muted">{dat.title}</Card.Title>
                                         <Card.Text>
                                         {dat.text}
@@ -77,8 +108,9 @@ function Twist(props) {
                                                 )}
                                             </Card.Footer>
                                         }
-                                        
+                                        <Button onClick={() => ispisi(index)}>fsfds</Button>
                                     </Card.Body>
+                                }  
                                 </Card>
                             </>
                         )}

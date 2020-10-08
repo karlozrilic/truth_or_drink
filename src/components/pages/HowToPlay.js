@@ -54,13 +54,11 @@ function HowToPlay() {
                         <br />
                         <b>8+ players:</b> The first to collect 3 question cards wins.
                     </p>
-                    {/* 
                     <div className="with-img">
                         <img src={process.env.PUBLIC_URL + 'imgs/card-2.png'} width="150" />
                         <p>
                             The “With a Twist” deck squeezes a brisk squirt of additional
-                            flavor into the game. Deal 3 <b>Twist Cards</b> to each player at the
-                            start of the game. Players can use these cards to either redirect
+                            flavor into the game. Every player has 3 <b>Twist Cards!</b> Players can use these cards to either redirect
                             an incoming question to a different person, or change something
                             about the question. 
                         </p>
@@ -69,7 +67,6 @@ function HowToPlay() {
                             round, draw more Twist Cards until you have three in your hand.
                         </p>
                     </div>
-                    */}
                     <div className="text-center">
                         <p>
                             <img src={process.env.PUBLIC_URL + 'imgs/icon-1.png'} width="40" /><i>Can be played whenever <b>you</b> are asked a question.</i>

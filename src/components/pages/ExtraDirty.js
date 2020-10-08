@@ -75,7 +75,7 @@ function ExtraDirty() {
                     }
                 </div>
                 </div>
-                <Twist color="#e32526" />
+                <Twist />
             </>
         );
     }

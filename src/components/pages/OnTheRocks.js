@@ -75,7 +75,7 @@ function OnTheRocks() {
                 }
             </div>
             </div>
-            <Twist color="#3b3d95" />
+            <Twist />
         </>
     );
 }
