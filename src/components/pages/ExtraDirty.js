@@ -22,10 +22,10 @@ function ExtraDirty() {
             const result = await axios(
                 'https://zrilich.pythonanywhere.com/api/v1/extraDirty/shuffle'
             );
-            setData(result.data)
+            setData(result.data);
             setState({
                 isLoading: false
-            })
+            });
         };
 
         fetchData();

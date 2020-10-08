@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
 import ReactLoading from 'react-loading';
+import { Form, Button } from 'react-bootstrap';
 import moment from 'moment';
 
 const TITLE = "Suggest question";
@@ -19,54 +20,36 @@ function SuggestQuestion(props) {
 
     useEffect(() => {
         document.title = TITLE;
-        const loginSubmit = async (e) => {
-            const data = {
-                "token": localStorage.token,
-            }
-            const config = {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'}
-            };
-            const res = await axios.post(
-                'https://zrilich.pythonanywhere.com/api/v1/get-user-details', data, config
-            );
-            setData(jwt_decode(res.data))
-            setDates({
-                created_at: jwt_decode(res.data).created_at,
-                updated_at: jwt_decode(res.data).updated_at
-            })
-            setState({
-                isLoading: false
-            })
-        }
-        loginSubmit();
     }, []);
         
 
-    if (state.isLoading) {
-        return (
-            <>
-                <div className="dashboard-component-loading">
-                    <ReactLoading type={"spin"} color={"grey"} />
-                    <h6>Loading suggest question form...</h6>
-                </div>
-            </>
-        )
-    } else {
-        return (
-            <>
-                <div className="dashboard-component">
-                    <h1 className="pb-3">Suggest question</h1>
-                    <p>First Name: {data.first_name}</p>
-                    <p>Last Name: {data.last_name}</p>
-                    <p>Email: {data.email}</p>
-                    <small>Created at: {moment(dates.created_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
-                    <small>Updated at: {moment(dates.updated_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
-                </div>
 
-            </>
-        )
-    }
+    return (
+        <>
+            <div className="dashboard-component">
+                <Form>
+                    <Form.Group controlId="formBasicEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Text className="text-muted">
+                            We'll never share your email with anyone else.
+                        </Form.Text>
+                    </Form.Group>
+
+                    <Form.Group controlId="formBasicPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Password" />
+                    </Form.Group>
+                    <Form.Group controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Check me out" />
+                    </Form.Group>
+                    <Button variant="primary" type="submit">
+                        Submit
+                    </Button>
+                </Form>
+            </div>
+        </>
+    )
 
 }
 

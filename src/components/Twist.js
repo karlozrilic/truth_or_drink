@@ -12,7 +12,7 @@ function Twist() {
         isLoading: false
     });
     const [opened, setOpened] = useState(false);
-    const [text, setText] = useState("Open Twist");
+    const [text, setText] = useState("Show Twists");
 
     const fetchData = async () => {
         const result = await axios(
@@ -26,10 +26,10 @@ function Twist() {
     const toggleTwist = () => {
         if (opened) {
             setOpened(false);
-            setText("Open Twist");
+            setText("Show Twists");
         } else {
             setOpened(true);
-            setText("Hide Twist");
+            setText("Hide Twists");
         }
     };
 
@@ -108,7 +108,7 @@ function Twist() {
                                                 )}
                                             </Card.Footer>
                                         }
-                                        <Button onClick={() => ispisi(index)}>fsfds</Button>
+                                        <Button variant="outline-primary" onClick={() => ispisi(index)}>Select</Button>
                                     </Card.Body>
                                 }  
                                 </Card>

@@ -132,10 +132,10 @@ function Login(props) {
         if (token === '') {
             return (
                 <>
-                <div className="question">
-                    <ReactLoading type={"spin"} color={"grey"} />
-                    <h6>Logging in...</h6>
-                </div>
+                    <div className="question">
+                        <ReactLoading type={"spin"} color={"grey"} />
+                        <h6>Logging in...</h6>
+                    </div>
                 </>
             )
         } else {
@@ -144,8 +144,7 @@ function Login(props) {
             } else {
                 return (
                     <>
-                    <Redirect to="/dashboard" />
-                    {window.location.reload()}
+                        <Redirect to="/dashboard/user-info" />
                     </>
                 )
             }

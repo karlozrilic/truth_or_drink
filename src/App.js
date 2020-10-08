@@ -39,8 +39,15 @@ function App() {
 
   const [valid, setValid] = useState();
 
+  const [currentURL, setCurrentURL] = useState("/");
+
+  const checkIfUsesFooter = () => {
+    setCurrentURL(window.location.pathname);
+  };
+
   useEffect(() => {
     setValid(checkExp);
+    checkIfUsesFooter();
   }, []);
 
   const checkExp = () => {
@@ -50,6 +57,7 @@ function App() {
       if (jwt_decode(localStorage.token).exp > trenutno) {
         return true;
       } else {
+        localStorage.token = "";
         return false;
       }
     } else {
@@ -59,7 +67,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <Router forceRefresh={true}>
         <Navbar valid={valid} />
         <div className="cont">
           <Switch>
@@ -68,28 +76,32 @@ function App() {
             <Route path="/happyhour" exact component={HappyHour} />
             <Route path="/lastcall" exact component={LastCall} />
             <Route path="/ontherocks" exact component={OnTheRocks} />
-            <Route path="/login" exact>
-            {!valid ? <Login /> : <Redirect to="/dashboard/user-info" />}
-            </Route>
-            <Route path="/logout" exact>
-              <Logout/>
-              <Redirect to="/" />
-            </Route>
-            <Route path="/dashboard/user-info" exact >
-              <Dashboard comp={UserInfo} current={0} />
-            </Route>
-            <Route path="/dashboard/suggest-question" exact >
-              <Dashboard comp={SuggestQuestion} current={1} />
-            </Route>
             <Route path="/how-to-play" exact component={HowToPlay}/>
             <Route path="/categories" exact component={Categories}/>
-
-            
+            <Route path="/login" exact>
+              {!valid ? <Login /> : <Redirect to="/dashboard/user-info" />}
+            </Route>
+            <Route path="/logout" exact>
+                <Logout/>
+            </Route>
+            {valid && 
+            <>
+              <Route path="/dashboard" exact>
+                <Redirect to="/dashboard/user-info" />
+              </Route>
+              <Route path="/dashboard/user-info" exact >
+                <Dashboard token={localStorage.token} comp={UserInfo} current={0} />
+              </Route>
+              <Route path="/dashboard/suggest-question" exact >
+                <Dashboard token={localStorage.token} comp={SuggestQuestion} current={1} />
+              </Route>
+            </>
+            }
           </Switch>
-          {footerUrls.includes(window.location.pathname) && <div className="push"></div> }
+          {footerUrls.includes(currentURL) && <div className="push"></div> }
           
         </div>
-        {footerUrls.includes(window.location.pathname) && <Footer /> }
+        {footerUrls.includes(currentURL) && <Footer /> }
       </Router>
      
       

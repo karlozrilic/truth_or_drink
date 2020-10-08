@@ -272,7 +272,6 @@ cite{
   width: 100%;
   margin: 10px;
   padding: 10px;
-  border: 1px solid red;
 }
 .dashboard-component-loading {
   display: flex;
@@ -407,6 +406,7 @@ red {
 }
 .twist-kartica > .card-body > button {
   align-self: center;
+  margin-top: 10px;
 }
 .twist-kartica.loading {
   display: flex;
