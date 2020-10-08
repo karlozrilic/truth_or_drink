@@ -100,7 +100,6 @@ function Login(props) {
                     localStorage.checkbox = isChecked
                 }
                 localStorage.token = res.data
-                console.log(jwt_decode(localStorage.token))
             }
         } else {
             e.preventDefault();

@@ -125,20 +125,16 @@ function Twist() {
         if (fetched) {
             return (
                 <>
-                    <div className="twist-wrap">
-                        <div className="open-twist closed">
-                            <a onClick={toggleTwist}>{text}</a>
-                        </div>
+                    <div className="open-twist closed">
+                        <a onClick={toggleTwist}>{text}</a>
                     </div>
                 </>
             )
         } else {
             return (
                 <>
-                    <div className="twist-wrap">
-                        <div className="open-twist closed">
-                            <a onClick={() => { toggleTwist(); fetchData(); }}>{text}</a>
-                        </div>
+                    <div className="open-twist closed">
+                        <a onClick={() => { toggleTwist(); fetchData(); }}>{text}</a>
                     </div>
                 </>
             )

@@ -19,17 +19,17 @@ function Navbar(props) {
                         <Nav.Link href="/login" >Login</Nav.Link>
                     :
                     <>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Profile
                             </a>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="/dashboard/user-info">User info</a>
-                                <a class="dropdown-item" href="/dashboard/suggest-question">Suggest question</a>
-                                <a class="dropdown-item" href="/dashboard/3">Another action</a>
-                                <a class="dropdown-item" href="/dashboard/4">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="/logout">Logout</a>
+                            <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                            <a className="dropdown-item" href="/dashboard/user-info">User info</a>
+                                <a className="dropdown-item" href="/dashboard/suggest-question">Suggest question</a>
+                                <a className="dropdown-item" href="/dashboard/3">Another action</a>
+                                <a className="dropdown-item" href="/dashboard/4">Something else here</a>
+                                <div className="dropdown-divider"></div>
+                                <a className="dropdown-item" href="/logout">Logout</a>
                             </div>
                         </li>
                     </>
