@@ -53,6 +53,7 @@
 }
 .cont {
   background-color: #f8f9fa;
+  width: 100% !important;
   min-height: 100% !important;
   height: auto !important;
   margin: 0 auto -50px; /* the bottom margin is the negative value of the footer's height */
@@ -74,6 +75,7 @@
 .home {
   display: flex;
   height: 100vh;
+  width: 100% !important;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -536,6 +538,9 @@ red {
   .twist-kartica {
     margin: 5px;
     width: 60%;
+  }
+  .kartica {
+    width: 100%;
   }
 }
 @media screen and (max-width: 767px) {
