@@ -14,6 +14,7 @@ function Twist() {
     });
     const [opened, setOpened] = useState(false);
     const [text, setText] = useState("Show Twists");
+    const [current, setCurrent] = useState(0);
 
     const fetchData = async () => {
         const result = await axios(
@@ -60,6 +61,22 @@ function Twist() {
         });
     }
 
+    const previous = () => {
+        if (current == 0) {
+            setCurrent(2);
+        } else {
+            setCurrent(current-1)
+        }
+    };
+
+    const next = () => {
+        if (current == 2) {
+            setCurrent(0);
+        } else {
+            setCurrent(current+1)
+        }
+    };
+
     if (opened) {
         if (loading) {
             return (
@@ -86,22 +103,21 @@ function Twist() {
                         </div>
                         
                         <div className="twist-content">
-                        {data.map((dat, index) =>  
-                            <>
-                                <Card className="twist-kartica loading">
-                                {loadingTwist.index != null && loadingTwist.index === index ? 
+                        <>
+                            <Card className={loadingTwist.isLoading ? "twist-kartica loading":"twist-kartica"}>
+                                {loadingTwist.index != null && loadingTwist.index === current ? 
                                 <>
                                     <ReactLoading type={"spin"} color={"#bfd430"} />
                                 </>
                                 :
                                 <Card.Body>
-                                        <Card.Title as="h6" className="bolder text-muted">{dat.title}</Card.Title>
+                                        <Card.Title as="h6" className="bolder text-muted">{data[current].title}</Card.Title>
                                         <Card.Text>
-                                        {dat.text}
+                                        {data[current].text}
                                         </Card.Text>
-                                        {dat.additional_points.length > 0 &&
+                                        {data[current].additional_points.length > 0 &&
                                             <Card.Footer className="text-muted">
-                                                {dat.additional_points.map((el) =>
+                                                {data[current].additional_points.map((el) =>
                                                     <>
                                                         <ul>
                                                             <li>{el}</li>
@@ -110,12 +126,15 @@ function Twist() {
                                                 )}
                                             </Card.Footer>
                                         }
-                                        <Button variant="outline-primary" onClick={() => ispisi(index)}>Select</Button>
+                                        <Button variant="outline-primary" onClick={() => ispisi(current)}>Select</Button>
                                     </Card.Body>
                                 }  
-                                </Card>
-                            </>
-                        )}
+                            </Card>
+                            <div className="prevNext">
+                                <button className="btn btn-outline-primary" onClick={previous}><i className="fal fa-caret-left"></i></button>
+                                <button className="btn btn-outline-primary" onClick={next}><i className="fal fa-caret-right"></i></button>
+                            </div>
+                        </>
                         </div>
                     </div>
                 </>

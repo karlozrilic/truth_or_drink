@@ -405,7 +405,7 @@ red {
   flex-direction: column;
   position: absolute;
   bottom: 0;
-  height: 70%;
+  height: 80%;
   width: 100%;
   transition: height .5s ease-in-out;
 }
@@ -437,9 +437,9 @@ red {
   height: 90%;
   background-color: rgb(238, 238, 238);
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   padding-bottom: 5px;
 }
 .twist-content-loading {
@@ -474,11 +474,13 @@ red {
   background-color: #a8bb2a;
 }
 .twist-kartica {
-  width: 30%;
+  width: 50% !important;
 }
 .twist-kartica > .card-body {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .twist-kartica > .card-body > button {
   align-self: center;
@@ -537,15 +539,13 @@ red {
     width: 100%;
   }
   .twist-content {
-    overflow: scroll;
     flex-direction: column;
     padding-bottom: 0;
     align-items: center;
-    justify-content: stretch;
   }
   .twist-kartica {
     margin: 5px;
-    width: 60%;
+    width: 80% !important;
   }
 }
 @media screen and (max-width: 767px) {
