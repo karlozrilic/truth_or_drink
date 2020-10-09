@@ -572,10 +572,20 @@ red {
   .kartica {
     width: 90%;
   }
+  /* fix for mobile viewport height */
   .question {
     height: calc(var(--vh, 1vh) * 100);
   }
   .cont {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  .home {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  .instructions {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  .dashboard {
     height: calc(var(--vh, 1vh) * 100);
   }
 }

@@ -28,6 +28,7 @@ function App() {
   const bckp = 'https://hn.algolia.com/api/v1/search?query=redux';
   const url = 'https://zrilich.pythonanywhere.com/api/v1/extraDirty/all';
 
+  /* fix for mobile viewport height */
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
 
