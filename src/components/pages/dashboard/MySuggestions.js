@@ -15,7 +15,6 @@ function MySuggestions() {
     const [order, setOrder] = useState({
         state: "FROM_NEWEST"
     });
-    const [rerender, setRerender] = useState(false);
 
     useEffect(() => {
         document.title = TITLE;
@@ -46,7 +45,7 @@ function MySuggestions() {
         }
     }
 
-    const orderBy = (event) => {
+    const orderBy = async (event) => {
         setOrder({
             state: event.target.value
         });
