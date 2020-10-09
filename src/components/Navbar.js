@@ -26,7 +26,7 @@ function Navbar(props) {
                             <div className="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                             <a className="dropdown-item" href="/dashboard/user-info">User info</a>
                                 <a className="dropdown-item" href="/dashboard/suggest-question">Suggest question</a>
-                                <a className="dropdown-item" href="/dashboard/3">Another action</a>
+                                <a className="dropdown-item" href="/dashboard/my-suggestions">My suggestions</a>
                                 <a className="dropdown-item" href="/dashboard/4">Something else here</a>
                                 <div className="dropdown-divider"></div>
                                 <a className="dropdown-item" href="/logout">Logout</a>

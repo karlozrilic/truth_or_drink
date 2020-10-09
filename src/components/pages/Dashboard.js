@@ -15,8 +15,8 @@ function Dashboard(props) {
         },
         {
             "className": "dashboard-sidebar-link",
-            "content": "Treći link",
-            "href": "/dashboard/3"
+            "content": "My suggestions",
+            "href": "/dashboard/my-suggestions"
         },
         {
             "className": "dashboard-sidebar-link",

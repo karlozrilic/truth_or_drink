@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import jwt_decode from "jwt-decode";
 import ReactLoading from 'react-loading';
-import { Form, Button, Col } from 'react-bootstrap';
-import moment from 'moment';
+import { Form, Button, Col, Alert, Fade } from 'react-bootstrap';
 
 const TITLE = "Suggest question";
 
@@ -12,6 +10,7 @@ function SuggestQuestion(props) {
     const [twoPart, setTwoPart] = useState(true);
     const [sending, setSending] = useState(false);
     const [sent, setSent] = useState(false);
+    const [response, setResponse] = useState();
 
     useEffect(() => {
         document.title = TITLE;
@@ -40,10 +39,9 @@ function SuggestQuestion(props) {
             const resp = await axios.post(
                 'https://zrilich.pythonanywhere.com/api/v1/send-one-question', data, config
             );
-            console.log(resp.data)
-            if (resp.data.message) {
-                setSending(false);
-            }
+            setSending(false);
+            setResponse(resp.data);
+            setSent(true)
         }
         
     };
@@ -64,10 +62,9 @@ function SuggestQuestion(props) {
             const resp = await axios.post(
                 'https://zrilich.pythonanywhere.com/api/v1/send-two-questions', data, config
             );
-            console.log(resp.data)
-            if (resp.data.message) {
-                setSending(false);
-            }
+            setSending(false);
+            setResponse(resp.data);
+            setSent(true)
         }
     };
         
@@ -75,8 +72,9 @@ function SuggestQuestion(props) {
     if (sending) {
         return (
             <>
-                <div className="dashboard-component">
-                    <h1>Sending</h1>
+                <div className="dashboard-component-loading">
+                    <ReactLoading type={"spin"} color={"grey"} />
+                    <h6>Sending your suggestion...</h6>
                 </div>
             </>
         )
@@ -88,6 +86,26 @@ function SuggestQuestion(props) {
                         <Button className="toggle-questions-button" onClick={toggleTwoPart} variant="outline-success" type="submit">
                                 One question
                         </Button>
+                        {sent &&
+                            <>
+                            {response.error ?
+                                <Alert variant="danger" onClose={() => setSent(false)} dismissible transition={Fade}>
+                                    <Alert.Heading>There was an error while trying to send your suggestion. Please try again later.</Alert.Heading>
+                                    <p>
+                                        Error: {response.error}
+                                    </p>
+                                </Alert>
+                            :
+                                <Alert variant="success" onClose={() => setSent(false)} dismissible>
+                                    <Alert.Heading>{response.message}</Alert.Heading>
+                                    <p>
+                                        Your question has been recieved and its waiting to be reviewed.
+                                        You can see your question status under <Alert.Link href="/dashboard/my-suggestions">My suggestions</Alert.Link> tab.
+                                    </p>
+                                </Alert>
+                            }   
+                            </>
+                        }
                         <Form className="text-center">
                             <Form.Row>
                                 <Col md={6}>
@@ -129,6 +147,26 @@ function SuggestQuestion(props) {
                         <Button className="toggle-questions-button" onClick={toggleTwoPart} variant="outline-success" type="submit">
                                 Two questions
                         </Button>
+                        {sent &&
+                            <>
+                            {response.error ?
+                                <Alert variant="danger" onClose={() => setSent(false)} dismissible transition={Fade}>
+                                    <Alert.Heading>There was an error while trying to send your suggestion. Please try again later.</Alert.Heading>
+                                    <p>
+                                        Error: {response.error}
+                                    </p>
+                                </Alert>
+                            :
+                                <Alert variant="success" onClose={() => setSent(false)} dismissible>
+                                    <Alert.Heading>{response.message}</Alert.Heading>
+                                    <p>
+                                        Your question has been recieved and its waiting to be reviewed.
+                                        You can see your question status under <Alert.Link href="/dashboard/my-suggestions">My suggestions</Alert.Link> tab.
+                                    </p>
+                                </Alert>
+                            }   
+                            </>
+                        }
                         <Form className="text-center">
                             <Form.Group className="left-text">
                                 <Form.Label>Question:</Form.Label>

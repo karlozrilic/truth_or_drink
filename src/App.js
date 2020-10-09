@@ -18,6 +18,7 @@ import Categories from './components/pages/Categories';
 
 import UserInfo from './components/pages/dashboard/UserInfo';
 import SuggestQuestion from './components/pages/dashboard/SuggestQuestion';
+import MySuggestions from './components/pages/dashboard/MySuggestions';
 
 import jwt_decode from "jwt-decode";
 
@@ -27,7 +28,7 @@ function App() {
   const bckp = 'https://hn.algolia.com/api/v1/search?query=redux';
   const url = 'https://zrilich.pythonanywhere.com/api/v1/extraDirty/all';
 
-  const footerUrls = ["/", "/dashboard/user-info", "/dashboard/suggest-question", "/how-to-play", "/categories"]
+  const footerUrls = ["/", "/dashboard/user-info", "/dashboard/suggest-question", "/dashboard/my-suggestions", "/how-to-play", "/categories"]
 
   if (localStorage.token == null) {
     localStorage.token = "";
@@ -94,6 +95,9 @@ function App() {
               </Route>
               <Route path="/dashboard/suggest-question" exact >
                 <Dashboard token={localStorage.token} comp={SuggestQuestion} current={1} />
+              </Route>
+              <Route path="/dashboard/my-suggestions" exact >
+                <Dashboard token={localStorage.token} comp={MySuggestions} current={2} />
               </Route>
             </>
             }

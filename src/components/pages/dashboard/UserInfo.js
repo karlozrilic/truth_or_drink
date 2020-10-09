@@ -41,6 +41,18 @@ function UserInfo() {
         }
         loginSubmit();
     }, []);
+
+    const checkIfWithin24hrs = (timesString) => {
+        const timestampOld = Math.floor(new Date(timesString) / 1000);
+        const date = new Date();
+        const currentTime = Math.floor(new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds())/1000);
+        const timestamp24hrsAgoFromNow = currentTime - (24 * 3600);
+        const within24hrsAgo = timestamp24hrsAgoFromNow <= timestampOld;
+        console.log(timestampOld);
+        console.log(timestamp24hrsAgoFromNow);
+        console.log(within24hrsAgo);
+        return within24hrsAgo;
+    };
         
 
     if (state.isLoading) {
@@ -60,8 +72,24 @@ function UserInfo() {
                     <p>First Name: {data.first_name}</p>
                     <p>Last Name: {data.last_name}</p>
                     <p>Email: {data.email}</p>
-                    <small>Created at: {moment(dates.created_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
-                    <small>Updated at: {moment(dates.updated_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
+                    {checkIfWithin24hrs(dates.created_at) ?
+                        <>
+                            <small className="text-muted">Created {moment(dates.created_at).fromNow()}</small>
+                        </>
+                    :
+                        <>
+                            <small className="text-muted">Created at: {moment(dates.created_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
+                        </>
+                    }
+                    {checkIfWithin24hrs(dates.updated_at) ?
+                        <>
+                            <small className="text-muted">Updated {moment(dates.updated_at).fromNow()}</small>
+                        </>
+                    :
+                        <>
+                            <small className="text-muted">Updated at: {moment(dates.updated_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
+                        </>
+                    }
                 </div>
 
             </>

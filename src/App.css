@@ -1,11 +1,55 @@
+:root {
+  --blue:#007bff;
+  --indigo:#6610f2;
+  --purple:#6f42c1;
+  --pink:#e83e8c;
+  --red:#dc3545;
+  --orange:#fd7e14;
+  --yellow:#ffc107;
+  --green:#28a745;
+  --teal:#20c997;
+  --cyan:#17a2b8;
+  --white:#fff;
+  --gray:#6c757d;
+  --gray-dark:#343a40;
+  --primary: #007bff;
+  --secondary: #6c757d;
+  --danger: #dc3545;
+  --success: #28a745;
+  --info: #17a2b8;
+  --warning: #ffc107;
+  --light: #f8f9fa;
+  --dark: #343a40;
+  --extraDirtyBG: #e32526;
+  --happyHourBG: #ffce00;
+  --happyHourCOLOR: #2db582;
+  --lastCallBG: #140f3a;
+  --lastCallCOLOR: #b1589f;
+  --onTheRocksBG: #3b3d95;
+}
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   font-family: Helvetica, sans-serif;
 }
-.fal {
-  font-size: 1.6rem;
+.fal.false {
+  color: var(--danger);
+}
+.fal.true {
+  color: var(--success);
+}
+.extraDirtyBorder {
+  border-color: var(--extraDirtyBG);
+}
+.happyHourBorder {
+  border-color: var(--happyHourBG);
+}
+.lastCallBorder {
+  border-color: var(--lastCallBG);
+}
+.onTheRocksBorder {
+  border-color: var(--onTheRocksBG);
 }
 .cont {
   background-color: #f8f9fa;
@@ -165,18 +209,18 @@ cite{
 }
 
 .kartica.extraDirty::after {
-  background-color: #e32526;
+  background-color: var(--extraDirtyBG);
 }
 .kartica.happyHour::after {
-  background-color: #ffce00;
-  color: #2db582;
+  background-color: var(--happyHourBG);
+  color: var(--happyHourCOLOR);
 }
 .kartica.lastCall::after {
-  background-color: #140f3a;
-  color: #b1589f;
+  background-color: var(--lastCallBG);
+  color: var(--lastCallCOLOR);
 }
 .kartica.onTheRocks::after {
-  background-color: #3b3d95;
+  background-color: var(--onTheRocksBG);
 }
 
 .prevNext {
@@ -288,6 +332,20 @@ cite{
   height: 100%;
   margin: 10px;
   padding: 10px;
+}
+.row {
+  align-items: center;
+}
+.row > div {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 10px;
+  width: 100% !important;
+}
+.row > div > div {
+  width: 100% !important;
 }
 
 .instructions {
@@ -479,6 +537,9 @@ red {
     margin: 5px;
     width: 60%;
   }
+}
+@media screen and (max-width: 767px) {
+  
 }
 
 @media screen and (max-width: 700px) {
