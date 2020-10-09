@@ -34,7 +34,7 @@ function MySuggestions() {
             headers: {'Content-Type': 'application/json'}
         };
         const res = await axios.post(
-            'http://127.0.0.1:5000/api/v1/my-suggestions', data, config
+            'https://zrilich.pythonanywhere.com/api/v1/my-suggestions', data, config
         );
         if (res.data.suggestions) {
             setData(res.data.suggestions)
@@ -61,7 +61,7 @@ function MySuggestions() {
                 headers: {'Content-Type': 'application/json'}
             };
             const res = await axios.post(
-                'http://127.0.0.1:5000/api/v1/my-suggestions', data, config
+                'https://zrilich.pythonanywhere.com/api/v1/my-suggestions', data, config
             );
             if (res.data.suggestions) {
                 setData(res.data.suggestions)
