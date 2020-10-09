@@ -344,6 +344,7 @@ cite{
 }
 .row {
   align-items: center;
+  padding: 15px;
 }
 .row > div {
   display: flex !important;
@@ -553,7 +554,7 @@ red {
 
 @media screen and (max-width: 700px) {
   .login-forma {
-    width: auto;
+    width: 80%;
   }
   .dashboard-sidebar {
     width: 90%;
