@@ -12,17 +12,20 @@ function MySuggestions() {
     const [state, setState] = useState({
         isLoading: true
     });
-    const [order, setOrder] = useState("FROM_NEWEST");
+    const [order, setOrder] = useState({
+        state: "FROM_NEWEST"
+    });
+    const [rerender, setRerender] = useState(false);
 
     useEffect(() => {
         document.title = TITLE;
         getSuggestions();
-    }, []);
+    }, [order]);
 
     const getSuggestions = async (e) => {
         const data = {
             "token": localStorage.token,
-            "order": order
+            "order": order.state
         }
         const config = {
             method: 'POST',
@@ -44,16 +47,9 @@ function MySuggestions() {
     }
 
     const orderBy = (event) => {
-        setState({
-            isLoading: true
-        })
-        setOrder(event.target.value);
-        console.log(event.target.value)
-        getSuggestions();
-        console.log(order)
-        setState({
-            isLoading: false
-        })
+        setOrder({
+            state: event.target.value
+        });
     };
 
     const renderCatBorder = (cat) => {
@@ -119,9 +115,10 @@ function MySuggestions() {
                 <div className="dashboard-component">
                     <h1>My suggestions</h1>
                     <hr />
-                    <select value={order} onChange={orderBy}>
-                        <option value="FROM_NEWEST" selected>From newest</option>
+                    <select id="select" value={order.state} onChange={orderBy}>
+                        <option value="FROM_NEWEST" defaultValue>From newest</option>
                         <option value="FROM_OLDEST">From oldest</option>
+                        <option value="FROM_OLDEST3">From oldest3</option>
                     </select>
                     <Row>
                     {data.length > 0 ?
@@ -157,8 +154,7 @@ function MySuggestions() {
                                                     <>
                                                         <small className="text-muted">Created at: {moment(dat.added).format("DD/MM/YYYY, HH:mm:ss")}</small>
                                                     </>
-                                                }
-                                                
+                                                }  
                                             </Card.Footer>
                                         </Card>
                                     </Col>
@@ -172,9 +168,8 @@ function MySuggestions() {
                     }
                     </Row>
                 </div>
-
             </>
-        )
+            )
     }
 
 }
