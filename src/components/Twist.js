@@ -95,7 +95,6 @@ function Twist() {
         } else {
             return (
                 <>
-                
                     <div className="twist-wrap">
                         <div className="open-twist opened">
                             <a onClick={toggleTwist}>{text}</a>
@@ -110,6 +109,7 @@ function Twist() {
                                     <ReactLoading type={"spin"} color={"#bfd430"} />
                                 </>
                                 :
+                                <>
                                 <Card.Body>
                                         <Card.Title as="h6" className="bolder text-muted">{data[current].title}</Card.Title>
                                         <Card.Text>
@@ -126,11 +126,14 @@ function Twist() {
                                                 )}
                                             </Card.Footer>
                                         }
-                                        <Button variant="outline-primary" onClick={() => ispisi(current)}>Select</Button>
+                                        
                                     </Card.Body>
+                                    <Button variant="outline-primary" onClick={() => ispisi(current)}>Select</Button>
+                                    <p className="twist-number-of-card text-muted">{current+1}/3</p>
+                                </>
                                 }  
                             </Card>
-                            <div className="prevNext">
+                            <div className="prevNext twists">
                                 <button className="btn btn-outline-primary" onClick={previous}><i className="fal fa-caret-left"></i></button>
                                 <button className="btn btn-outline-primary" onClick={next}><i className="fal fa-caret-right"></i></button>
                             </div>
@@ -144,17 +147,21 @@ function Twist() {
         if (fetched) {
             return (
                 <>
-                    <div className="open-twist closed">
-                        <a onClick={toggleTwist}>{text}</a>
+                    <div className="twist-wrap closed">
+                        <div className="open-twist closed">
+                            <a onClick={toggleTwist}>{text}</a>
+                        </div>
                     </div>
                 </>
             )
         } else {
             return (
                 <>
+                <div className="twist-wrap closed">
                     <div className="open-twist closed">
                         <a onClick={() => { toggleTwist(); fetchData(); }}>{text}</a>
                     </div>
+                </div>
                 </>
             )
         }

@@ -246,6 +246,12 @@ cite{
 .prevNext > button:nth-child(2) {
   margin-right: calc(100%/3);
 }
+.prevNext.twists > button:nth-child(1) {
+  margin-left: calc(100%/5);
+}
+.prevNext.twists > button:nth-child(2) {
+  margin-right: calc(100%/5);
+}
 
 .prevNext > button {
   display: flex;
@@ -405,11 +411,14 @@ red {
   flex-direction: column;
   position: absolute;
   bottom: 0;
-  height: 80%;
+  height: 70%;
   width: 100%;
+  /*transition: height .5s ease-in-out;*/
+}
+.twist-wrap.closed {
+  height: 0;
   transition: height .5s ease-in-out;
 }
-
 .open-twist {
   position: fixed;
   bottom: 0;
@@ -473,18 +482,32 @@ red {
   color: #36853d;
   background-color: #a8bb2a;
 }
+.twist-number-of-card {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 5px 8px;
+}
 .twist-kartica {
-  width: 50% !important;
+  margin: 10px;
+  width: 40% !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .twist-kartica > .card-body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 80% !important;
 }
-.twist-kartica > .card-body > button {
+.twist-kartica > button {
   align-self: center;
-  margin-top: 10px;
+  justify-self: center !important;
+  margin: 10px;
 }
 .twist-kartica.loading {
   display: flex;
@@ -504,6 +527,12 @@ red {
   }
   .prevNext > button:nth-child(2) {
     margin-right: calc(100%/4);
+  }
+  .prevNext.twists > button:nth-child(1) {
+    margin-left: calc(100%/5);
+  }
+  .prevNext.twists > button:nth-child(2) {
+    margin-right: calc(100%/5);
   }
 }
 
@@ -547,9 +576,12 @@ red {
     margin: 5px;
     width: 80% !important;
   }
-}
-@media screen and (max-width: 767px) {
-  
+  .twist-kartica > .card-body {
+    width: 100% !important;
+  }
+  .twist-wrap {
+    height: 90%;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -585,11 +617,5 @@ red {
   }
   .loginForm {
     height: calc(var(--vh, 1vh) * 100);
-  }
-}
-
-@media screen and (min-height: 800px) {
-  .twist-wrap {
-    height: 50%;
   }
 }
