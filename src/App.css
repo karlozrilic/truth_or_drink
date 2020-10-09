@@ -572,6 +572,12 @@ red {
   .kartica {
     width: 90%;
   }
+  .question {
+    height: calc(var(--vh, 1vh) * 100);
+  }
+  .cont {
+    height: calc(var(--vh, 1vh) * 100);
+  }
 }
 
 @media screen and (min-height: 800px) {
