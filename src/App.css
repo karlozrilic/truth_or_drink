@@ -582,12 +582,6 @@ red {
   .home {
     height: calc(var(--vh, 1vh) * 100);
   }
-  .instructions {
-    height: calc(var(--vh, 1vh) * 100);
-  }
-  .dashboard {
-    height: calc(var(--vh, 1vh) * 100);
-  }
   .loginForm {
     height: calc(var(--vh, 1vh) * 100);
   }
