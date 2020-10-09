@@ -11,10 +11,10 @@ function SuggestQuestion(props) {
 
     const [twoPart, setTwoPart] = useState(true);
     const [sending, setSending] = useState(false);
+    const [sent, setSent] = useState(false);
 
     useEffect(() => {
         document.title = TITLE;
-
     }, []);
         
     const toggleTwoPart = () => {
@@ -25,122 +25,137 @@ function SuggestQuestion(props) {
         }
     };
 
-    const sendOneQuestion = async (e) => {
-        setSending(true);
-        const data = {
-            "question": document.getElementById("question").value,
-            "category": document.getElementById("category1").value,
-            "token": localStorage.token
-        };
-        const config = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Accept': 'application/json',}
-        };
-        const resp = await axios.post(
-            'https://zrilich.pythonanywhere.com/api/v1/send-one-question', data, config
-        );
-        console.log(resp.message)
-        if (resp.message) {
-            setSending(false);
+    const sendOneQuestion = async () => {
+        if (!sent) {
+            setSending(true);
+            const data = {
+                "question": document.getElementById("question").value,
+                "category": document.getElementById("category1").value,
+                "token": localStorage.token
+            };
+            const config = {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json', 'Accept': 'application/json',}
+            };
+            const resp = await axios.post(
+                'https://zrilich.pythonanywhere.com/api/v1/send-one-question', data, config
+            );
+            console.log(resp.data)
+            if (resp.data.message) {
+                setSending(false);
+            }
         }
-        e.preventDefault();
+        
     };
 
-    const sendTwoQuestion = async (e) => {
-        setSending(true);
-        const data = {
-            "question1": document.getElementById("question1").value,
-            "question2": document.getElementById("question2").value,
-            "category": document.getElementById("category").value,
-            "token": localStorage.token
-        };
-        const config = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json', 'Accept': 'application/json',}
-        };
-        const resp = await axios.post(
-            'https://zrilich.pythonanywhere.com/api/v1/send-two-questions', data, config
-        );
-        console.log(resp.message)
-        if (resp.message) {
-            setSending(false);
+    const sendTwoQuestion = async () => {
+        if (!sent) {
+            setSending(true);
+            const data = {
+                "question1": document.getElementById("question1").value,
+                "question2": document.getElementById("question2").value,
+                "category": document.getElementById("category").value,
+                "token": localStorage.token
+            };
+            const config = {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json', 'Accept': 'application/json',}
+            };
+            const resp = await axios.post(
+                'https://zrilich.pythonanywhere.com/api/v1/send-two-questions', data, config
+            );
+            console.log(resp.data)
+            if (resp.data.message) {
+                setSending(false);
+            }
         }
-        e.preventDefault();
     };
+        
 
-    if (twoPart) {
+    if (sending) {
         return (
             <>
                 <div className="dashboard-component">
-                    <Button className="toggle-questions-button" onClick={toggleTwoPart} variant="outline-success" type="submit">
-                            One question
-                    </Button>
-                    <Form className="text-center">
-                        <Form.Row>
-                            <Col md={6}>
-                                <Form.Group className="left-text">
-                                    <Form.Label>First question:</Form.Label>
-                                    <Form.Control id="question1" required as="textarea" rows="3" />
-                                </Form.Group>
-                            </Col>
-                            <Col md={6}>
-                                <Form.Group className="left-text">
-                                    <Form.Label>Second question:</Form.Label>
-                                    <Form.Control id="question2" required as="textarea" rows="3" />
-                                </Form.Group>
-                            </Col>
-                        </Form.Row>
-
-                        <Form.Group className="left-text">
-                            <Form.Label>Select category</Form.Label>
-                            <Form.Control id="category" required as="select">
-                                <option value="">---------</option>
-                                <option value="extraDirty">Extra Dirty</option>
-                                <option value="happyHour">Happy Hour</option>
-                                <option value="lastCall">Last Call</option>
-                                <option value="onTheRocks">On The Rocks</option>
-                            </Form.Control>
-                        </Form.Group>
-    
-                        <Button onClick={sendTwoQuestion} variant="outline-primary" type="submit">
-                            Submit
-                        </Button>
-                    </Form>
+                    <h1>Sending</h1>
                 </div>
             </>
         )
     } else {
-        return (
-            <>
-                <div className="dashboard-component">
-                    <Button className="toggle-questions-button" onClick={toggleTwoPart} variant="outline-success" type="submit">
-                            Two questions
-                    </Button>
-                    <Form className="text-center">
-                        <Form.Group className="left-text">
-                            <Form.Label>Question:</Form.Label>
-                            <Form.Control id="question" required as="textarea" rows="3" />
-                        </Form.Group>
-
-                        <Form.Group className="left-text">
-                            <Form.Label>Select category</Form.Label>
-                            <Form.Control id="category1" required as="select">
-                                <option value="">---------</option>
-                                <option value="extraDirty">Extra Dirty</option>
-                                <option value="happyHour">Happy Hour</option>
-                                <option value="lastCall">Last Call</option>
-                                <option value="onTheRocks">On The Rocks</option>
-                            </Form.Control>
-                        </Form.Group>
-    
-                        <Button onClick={sendOneQuestion} variant="outline-primary" type="submit">
-                            Submit
+        if (twoPart) {
+            return (
+                <>
+                    <div className="dashboard-component">
+                        <Button className="toggle-questions-button" onClick={toggleTwoPart} variant="outline-success" type="submit">
+                                One question
                         </Button>
-                    </Form>
-                </div>
-            </>
-        )
+                        <Form className="text-center">
+                            <Form.Row>
+                                <Col md={6}>
+                                    <Form.Group className="left-text">
+                                        <Form.Label>First question:</Form.Label>
+                                        <Form.Control id="question1" required as="textarea" rows="3" />
+                                    </Form.Group>
+                                </Col>
+                                <Col md={6}>
+                                    <Form.Group className="left-text">
+                                        <Form.Label>Second question:</Form.Label>
+                                        <Form.Control id="question2" required as="textarea" rows="3" />
+                                    </Form.Group>
+                                </Col>
+                            </Form.Row>
+    
+                            <Form.Group className="left-text">
+                                <Form.Label>Select category</Form.Label>
+                                <Form.Control id="category" required as="select">
+                                    <option value="">---------</option>
+                                    <option value="extraDirty">Extra Dirty</option>
+                                    <option value="happyHour">Happy Hour</option>
+                                    <option value="lastCall">Last Call</option>
+                                    <option value="onTheRocks">On The Rocks</option>
+                                </Form.Control>
+                            </Form.Group>
+        
+                            <Button onClick={sendTwoQuestion} variant="outline-primary" type="submit">
+                                Submit
+                            </Button>
+                        </Form>
+                    </div>
+                </>
+            )
+        } else {
+            return (
+                <>
+                    <div className="dashboard-component">
+                        <Button className="toggle-questions-button" onClick={toggleTwoPart} variant="outline-success" type="submit">
+                                Two questions
+                        </Button>
+                        <Form className="text-center">
+                            <Form.Group className="left-text">
+                                <Form.Label>Question:</Form.Label>
+                                <Form.Control id="question" required as="textarea" rows="3" />
+                            </Form.Group>
+    
+                            <Form.Group className="left-text">
+                                <Form.Label>Select category</Form.Label>
+                                <Form.Control id="category1" required as="select">
+                                    <option value="">---------</option>
+                                    <option value="extraDirty">Extra Dirty</option>
+                                    <option value="happyHour">Happy Hour</option>
+                                    <option value="lastCall">Last Call</option>
+                                    <option value="onTheRocks">On The Rocks</option>
+                                </Form.Control>
+                            </Form.Group>
+        
+                            <Button onClick={sendOneQuestion} variant="outline-primary" type="submit">
+                                Submit
+                            </Button>
+                        </Form>
+                    </div>
+                </>
+            )
+        }
     }
+    
 
 }
 
