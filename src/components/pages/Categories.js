@@ -10,7 +10,7 @@ function Categories() {
 
     return (
         <>
-            <div className="instructions">
+            <div className="categories">
                 <div className="paper">
                     <h5><b>ON THE ROCKS:</b></h5>
                     <p>

@@ -388,12 +388,25 @@ cite{
   top: 0;
   left: 0;
   display: flex;
+  min-height: 100vh;
   height: 100%;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
   width: 80%;
   margin-bottom: 100px;
+}
+.categories {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  min-height: 100vh;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
 }
 .paper {
   position: relative;
