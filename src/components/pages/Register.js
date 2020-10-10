@@ -101,7 +101,7 @@ function Register(props) {
                 headers: {"Content-Type": "application/json"}
             };
             const res = await axios.post(
-                "http://127.0.0.1:5000/api/v1/register", data, config
+                "http://zrilich.pythonanywhere.com/api/v1/register", data, config
             );
             
             setResult({
