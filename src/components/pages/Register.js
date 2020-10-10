@@ -20,37 +20,67 @@ function Register(props) {
     });
     const [result, setResult] = useState({
         token: ""
-    })
+    });
     const [state, setState] = useState({
         isLoading: false
-    })
+    });
     const [clear, setClear] = useState({
         isClear: false
-    })
+    });
 
     useEffect(() => {
         document.title = TITLE;
     }, []);
 
+    const onChangeFirstName = event => {
+        setLocal({
+            first_name: event.target.value,
+            last_name: local.last_name,
+            email: local.email,
+            password: local.password,
+            confirm_password: local.confirm_password
+        });
+    };
+
+    const onChangeLastName = event => {
+        setLocal({
+            first_name: local.first_name,
+            last_name: event.target.value,
+            email: local.email,
+            password: local.password,
+            confirm_password: local.confirm_password
+        });
+    };
+
     const onChangeEmail = event => {
         setLocal({
             first_name: local.first_name,
-            last_name: local.first_name,
+            last_name: local.last_name,
             email: event.target.value,
             password: local.password,
             confirm_password: local.confirm_password
         });
-    }
+    };
 
     const onChangePassword = event => {
         setLocal({
             first_name: local.first_name,
-            last_name: local.first_name,
+            last_name: local.last_name,
             email: local.email,
             password: event.target.value,
             confirm_password: local.confirm_password
         });
-    }
+    };
+
+    const onChangeConfirmPassword = event => {
+        setLocal({
+            first_name: local.first_name,
+            last_name: local.last_name,
+            email: local.email,
+            password: local.password,
+            confirm_password: event.target.value
+        });
+    };
       
     const registerSubmit = async (e) => {
         const { first_name, last_name, email, password, confirm_password } = local;
@@ -147,7 +177,7 @@ function Register(props) {
                             <Col lg={4} sm={6}>
                                 <Form.Group as={Col} className="left-center p-0" controlId="formBasicEmail">
                                     <Form.Label>First Name</Form.Label>
-                                    <Form.Control value={email} onChange={onChangeEmail} type="email" placeholder="First Name" />
+                                    <Form.Control value={first_name} onChange={onChangeFirstName} type="email" placeholder="First Name" />
                                     <Form.Text id="email-error" className="text-muted">
                                     </Form.Text>
                                 </Form.Group>
@@ -155,7 +185,7 @@ function Register(props) {
                             <Col lg={4} sm={6}>
                                 <Form.Group as={Col} className="left-center p-0" controlId="formBasicEmail">
                                     <Form.Label>Last Name</Form.Label>
-                                    <Form.Control value={email} onChange={onChangeEmail} type="email" placeholder="Last Name" />
+                                    <Form.Control value={last_name} onChange={onChangeLastName} type="email" placeholder="Last Name" />
                                     <Form.Text id="email-error" className="text-muted">
                                     </Form.Text>
                                 </Form.Group>
@@ -182,7 +212,7 @@ function Register(props) {
                             <Col lg={6}>
                                 <Form.Group as={Col} className="left-center p-0" controlId="formBasicPassword">
                                     <Form.Label>Confirm password</Form.Label>
-                                    <Form.Control value={password} onChange={onChangePassword} type="password" placeholder="Password confirmation" />
+                                    <Form.Control value={password} onChange={onChangeConfirmPassword} type="password" placeholder="Password confirmation" />
                                     <Form.Text id="password-error" className="text-muted">
                                     </Form.Text>
                                 </Form.Group>
@@ -192,7 +222,7 @@ function Register(props) {
                         <Button onClick={registerSubmit} variant="primary" type="submit">
                             Register
                         </Button>
-                        <p>If you don't have account yet register <Alert.Link href='/register'>here</Alert.Link>.</p>
+                        <p>If you already own an account login <Alert.Link href='/login'>here</Alert.Link>.</p>
                     </Form>
                 </div>
             </>
