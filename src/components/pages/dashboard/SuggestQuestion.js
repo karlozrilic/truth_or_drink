@@ -83,6 +83,8 @@ function SuggestQuestion(props) {
             return (
                 <>
                     <div className="dashboard-component">
+                        <h1>Suggest question/s</h1>
+                        <hr />
                         <Button className="toggle-questions-button" onClick={toggleTwoPart} variant="outline-success" type="submit">
                                 One question
                         </Button>

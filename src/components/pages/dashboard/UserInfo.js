@@ -48,9 +48,6 @@ function UserInfo() {
         const currentTime = Math.floor(new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds())/1000);
         const timestamp24hrsAgoFromNow = currentTime - (24 * 3600);
         const within24hrsAgo = timestamp24hrsAgoFromNow <= timestampOld;
-        console.log(timestampOld);
-        console.log(timestamp24hrsAgoFromNow);
-        console.log(within24hrsAgo);
         return within24hrsAgo;
     };
         
@@ -68,26 +65,27 @@ function UserInfo() {
         return (
             <>
                 <div className="dashboard-component">
-                    <h1 className="pb-3">User information</h1>
+                    <h1>User information</h1>
+                    <hr />
                     <p>First Name: {data.first_name}</p>
                     <p>Last Name: {data.last_name}</p>
                     <p>Email: {data.email}</p>
                     {checkIfWithin24hrs(dates.created_at) ?
                         <>
-                            <small className="text-muted">Created {moment(dates.created_at).fromNow()}</small>
+                            <small className="text-muted">Profile created {moment(dates.created_at).fromNow()}</small>
                         </>
                     :
                         <>
-                            <small className="text-muted">Created at: {moment(dates.created_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
+                            <small className="text-muted">Profile created at: {moment(dates.created_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
                         </>
                     }
                     {checkIfWithin24hrs(dates.updated_at) ?
                         <>
-                            <small className="text-muted">Updated {moment(dates.updated_at).fromNow()}</small>
+                            <small className="text-muted">Profile last updated {moment(dates.updated_at).fromNow()}</small>
                         </>
                     :
                         <>
-                            <small className="text-muted">Updated at: {moment(dates.updated_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
+                            <small className="text-muted">Profile last updated at: {moment(dates.updated_at).format('DD/MM/YYYY, HH:mm:ss')}</small>
                         </>
                     }
                 </div>

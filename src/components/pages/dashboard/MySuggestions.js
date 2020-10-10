@@ -133,8 +133,8 @@ function MySuggestions() {
                 return (<>You don't have any reviewed questions yet! Don't worry, patience is a virtue. Suggest more questions in <Alert.Link href='/dashboard/suggest-question'>Suggest question</Alert.Link> tab!</>);
             case "APPROVED":
                 return (<>You don't have any approved questions yet! Don't worry, patience is a virtue. Suggest more questions in <Alert.Link href='/dashboard/suggest-question'>Suggest question</Alert.Link> tab!</>);
-            case "DENIED":
-                return (<>You don't have any denied questions yet! Good job! Suggest more questions in <Alert.Link href='/dashboard/suggest-question'>Suggest question</Alert.Link> tab!</>);
+            case "REJECTED":
+                return (<>You don't have any rejected questions yet! Good job! Suggest more questions in <Alert.Link href='/dashboard/suggest-question'>Suggest question</Alert.Link> tab!</>);
             default:
                 return (<>You didn't make any suggestions yet! Make some in <Alert.Link href='/dashboard/suggest-question'>Suggest question</Alert.Link> tab!</>);
         }
@@ -195,7 +195,7 @@ function MySuggestions() {
                                     <option value="NOT_REVIEWED">Not reviewed</option>
                                     <option value="REVIEWED">Reviewed</option>
                                     <option value="APPROVED">Approved</option>
-                                    <option value="DENIED">Denied</option>
+                                    <option value="REJECTED">Rejected</option>
                                 </Form.Control>
                             </Col>
                         </Form.Row>
@@ -233,7 +233,7 @@ function MySuggestions() {
                                     <option value="NOT_REVIEWED">Not reviewed</option>
                                     <option value="REVIEWED">Reviewed</option>
                                     <option value="APPROVED">Approved</option>
-                                    <option value="DENIED">Denied</option>
+                                    <option value="REJECTED">Rejected</option>
                                 </Form.Control>
                             </Col>
                         </Form.Row>

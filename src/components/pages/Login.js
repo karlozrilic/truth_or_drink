@@ -87,17 +87,18 @@ function Login(props) {
             const res = await axios.post(
                 "https://zrilich.pythonanywhere.com/api/v1/login", data, config
             );
+           
             setResult({
                 token: res.data
-            })
+            });
             if (jwt_decode(res.data).error) {
                 setClear({
                     isClear: false
-                })
+                });
             } else {
                 setClear({
                     isClear: true
-                })
+                });
                 if (isChecked && email !== "") {
                     localStorage.email = email
                     localStorage.password = password
@@ -124,8 +125,8 @@ function Login(props) {
                 } else {
                     email_err.style.display = "none";
                     email_err.textContent = "";
-                    email_input.classList.add("is-valid");
                     email_input.classList.remove("is-invalid");
+                    email_input.classList.add("is-valid"); 
                 }
             }
             if (!password) {
@@ -135,8 +136,8 @@ function Login(props) {
             } else {
                 pass_err.style.display = "none";
                 pass_err.textContent = "";
-                password_input.classList.add("is-valid");
                 password_input.classList.remove("is-invalid");
+                password_input.classList.add("is-valid");
             }
         }
         
@@ -178,14 +179,14 @@ function Login(props) {
                         <Form.Group className="left-text" controlId="formBasicEmail">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control id="email_input" value={email} onChange={onChangeEmail} type="email" placeholder="Enter email" />
-                            <Form.Text id="email-error" className="text-muted">
+                            <Form.Text id="email-error" className="text-muted form-error-text">
                             </Form.Text>
                         </Form.Group>
     
                         <Form.Group className="left-text" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
                             <Form.Control id="password_input" value={password} onChange={onChangePassword} type="password" placeholder="Password" />
-                            <Form.Text id="password-error" className="text-muted">
+                            <Form.Text id="password-error" className="text-muted form-error-text">
                             </Form.Text>
                         </Form.Group>
                         <Form.Group className="left-text" controlId="formBasicCheckbox">
