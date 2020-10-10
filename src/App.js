@@ -10,6 +10,7 @@ import LastCall from './components/pages/LastCall';
 import OnTheRocks from './components/pages/OnTheRocks';
 
 import Login from './components/pages/Login';
+import Register from './components/pages/Register';
 import Logout from './components/pages/Logout';
 
 import Dashboard from './components/pages/Dashboard.js';
@@ -85,6 +86,9 @@ function App() {
             <Route path="/categories" exact component={Categories}/>
             <Route path="/login" exact>
               {!valid ? <Login /> : <Redirect push to="/dashboard/user-info" />}
+            </Route>
+            <Route path="/register" exact>
+              {localStorage.token == "" ? <Register /> : <Redirect push to="/dashboard/user-info" />}
             </Route>
             <Route path="/logout" exact>
                 <Logout/>

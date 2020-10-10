@@ -173,8 +173,21 @@ cite{
   font-size: 1rem;
   margin: 0;
 }
+.registerForm {
+  padding-top: 70px;
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  margin: 0;
+}
 .login-forma {
   width: 25%;
+}
+.register-forma {
+  width: 55%;
 }
 #email-error {
   display: none;
@@ -609,6 +622,9 @@ red {
 
 @media screen and (max-width: 700px) {
   .login-forma {
+    width: 80%;
+  }
+  .register-forma {
     width: 80%;
   }
   .dashboard-sidebar {

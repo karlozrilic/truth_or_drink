@@ -96,7 +96,7 @@ function SuggestQuestion(props) {
                                     </p>
                                 </Alert>
                             :
-                                <Alert variant="success" onClose={() => setSent(false)} dismissible>
+                                <Alert variant="success" onClose={() => setSent(false)} dismissible transition={Fade}>
                                     <Alert.Heading>{response.message}</Alert.Heading>
                                     <p>
                                         Your question has been recieved and its waiting to be reviewed.
@@ -157,7 +157,7 @@ function SuggestQuestion(props) {
                                     </p>
                                 </Alert>
                             :
-                                <Alert variant="success" onClose={() => setSent(false)} dismissible>
+                                <Alert variant="success" onClose={() => setSent(false)} dismissible transition={Fade}>
                                     <Alert.Heading>{response.message}</Alert.Heading>
                                     <p>
                                         Your question has been recieved and its waiting to be reviewed.
