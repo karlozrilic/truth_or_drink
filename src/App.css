@@ -423,7 +423,7 @@ red {
   justify-content: space-between;
   position: absolute;
   bottom: 0;
-  height: 60%;
+  height: 70%;
   width: 100%;
   /*transition: height .5s ease-in-out;*/
 }
@@ -467,7 +467,7 @@ red {
 .twist-content-loading {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 60%;
   height: 90%;
   background-color: rgb(238, 238, 238);
   display: flex;
@@ -475,6 +475,7 @@ red {
   align-items: center;
   justify-content: space-evenly;
   padding-bottom: 5px;
+  border-radius: 5px 5px 0 0;
 }
 .open-twist.opened > a {
   padding: 10px;
@@ -502,11 +503,12 @@ red {
   margin: 5px 8px;
 }
 .twist-kartica {
-  margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 70%;
+  text-align: center;
 }
 .twist-kartica > .card-body {
   display: flex;
@@ -539,11 +541,6 @@ red {
   .prevNext > button:nth-child(2) {
     margin-right: calc(100%/4);
   }
-  .prevNext.twists {
-    position: relative;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
   .prevNext.twists > button:nth-child(1) {
     margin-left: calc(100%/5);
   }
@@ -565,6 +562,11 @@ red {
   .prevNext {
     position: relative;
     justify-content: center;
+  }
+  .prevNext.twists {
+    position: relative;
+    justify-content: center;
+    margin-bottom: 10px;
   }
   .login-forma {
     width: 30%;
