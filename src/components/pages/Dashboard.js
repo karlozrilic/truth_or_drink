@@ -17,11 +17,6 @@ function Dashboard(props) {
             "className": "dashboard-sidebar-link",
             "content": "My suggestions",
             "href": "/dashboard/my-suggestions"
-        },
-        {
-            "className": "dashboard-sidebar-link",
-            "content": "Četvrti link",
-            "href": "/dashboard/4"
         }
     ]
 

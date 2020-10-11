@@ -17,6 +17,8 @@ import Dashboard from './components/pages/Dashboard.js';
 import HowToPlay from './components/pages/HowToPlay';
 import Categories from './components/pages/Categories';
 
+import NotFound from './components/pages/NotFound';
+
 import UserInfo from './components/pages/dashboard/UserInfo';
 import SuggestQuestion from './components/pages/dashboard/SuggestQuestion';
 import MySuggestions from './components/pages/dashboard/MySuggestions';
@@ -26,9 +28,6 @@ import jwt_decode from "jwt-decode";
 import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 
 function App() {
-  const bckp = 'https://hn.algolia.com/api/v1/search?query=redux';
-  const url = 'https://zrilich.pythonanywhere.com/api/v1/extraDirty/all';
-
   /* fix for mobile viewport height */
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -44,9 +43,7 @@ function App() {
   }
 
   const [valid, setValid] = useState();
-
   const [currentURL, setCurrentURL] = useState("/");
-
   const checkIfUsesFooter = () => {
     setCurrentURL(window.location.pathname);
   };
@@ -93,11 +90,9 @@ function App() {
             <Route path="/logout" exact>
                 <Logout/>
             </Route>
+            
             {valid && 
             <>
-              <Route path="/dashboard" exact>
-                <Redirect push to="/dashboard/user-info" />
-              </Route>
               <Route path="/dashboard/user-info" exact >
                 <Dashboard token={localStorage.token} comp={UserInfo} current={0} />
               </Route>
@@ -107,8 +102,10 @@ function App() {
               <Route path="/dashboard/my-suggestions" exact >
                 <Dashboard token={localStorage.token} comp={MySuggestions} current={2} />
               </Route>
+              <Route component={NotFound} />
             </>
             }
+            <Route component={NotFound} />
           </Switch>
           {footerUrls.includes(currentURL) && <div className="push"></div> }
           
