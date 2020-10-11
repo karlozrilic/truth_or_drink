@@ -93,6 +93,9 @@ function App() {
             
             {valid && 
             <>
+              <Route path="/dashboard" exact>
+                <Redirect push to="/dashboard/user-info" />
+              </Route>
               <Route path="/dashboard/user-info" exact >
                 <Dashboard token={localStorage.token} comp={UserInfo} current={0} />
               </Route>
@@ -102,7 +105,6 @@ function App() {
               <Route path="/dashboard/my-suggestions" exact >
                 <Dashboard token={localStorage.token} comp={MySuggestions} current={2} />
               </Route>
-              <Route component={NotFound} />
             </>
             }
             <Route component={NotFound} />
