@@ -407,6 +407,7 @@ cite{
   align-items: center;
   margin: 0 auto;
   width: 80%;
+  margin-bottom: 100px;
 }
 .paper {
   position: relative;
