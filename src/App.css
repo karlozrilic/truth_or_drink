@@ -164,6 +164,13 @@ cite{
   color: white;
 }
 
+.btn-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .loginForm {
   display: flex;
   height: 100vh;
@@ -362,7 +369,6 @@ cite{
   flex-direction: column;
   width: 100%;
   align-items: center;
-  justify-content: center;
   height: 100%;
   margin: 10px;
   padding: 10px;

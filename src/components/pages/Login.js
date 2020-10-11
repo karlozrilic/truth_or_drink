@@ -193,7 +193,7 @@ function Login(props) {
                             <Form.Check /*checked={isChecked}*/ onChange={onChangeCheckbox} type="checkbox" label="Remember me" />
                         </Form.Group>
                         {show && <Alert variant="danger" onClose={() => setShow(false)} dismissible transition={Fade}>{props.error.error}</Alert>}
-                        <Button onClick={loginSubmit} variant="primary" type="submit">
+                        <Button onClick={loginSubmit} variant="outline-primary" type="submit">
                             Submit
                         </Button>
                         <p>If you don't have account yet register <Alert.Link href='/register'>here</Alert.Link>.</p>

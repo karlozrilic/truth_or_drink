@@ -72,10 +72,14 @@ function SuggestQuestion(props) {
     if (sending) {
         return (
             <>
-                <div className="dashboard-component-loading">
-                    <ReactLoading type={"spin"} color={"grey"} />
-                    <h6>Sending your suggestion...</h6>
-                </div>
+                <div className="dashboard-component">
+                    <h1>Suggest question/s</h1>
+                    <hr />
+                    <div className="dashboard-component-loading">
+                        <ReactLoading type={"spin"} color={"grey"} />
+                        <h6>Sending your suggestion...</h6>
+                    </div>
+                </div>  
             </>
         )
     } else {

@@ -30,11 +30,11 @@ function MySuggestions() {
             "filter": filter
         }
         const config = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'}
+            method: "POST",
+            headers: {"Content-Type": "application/json"}
         };
         const res = await axios.post(
-            'https://zrilich.pythonanywhere.com/api/v1/my-suggestions', data, config
+            "https://zrilich.pythonanywhere.com/api/v1/my-suggestions", data, config
         );
         if (res.data.suggestions) {
             setData(res.data.suggestions)
@@ -57,11 +57,11 @@ function MySuggestions() {
                 "filter": filter
             }
             const config = {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'}
+                method: "POST",
+                headers: {"Content-Type": "application/json"}
             };
             const res = await axios.post(
-                'https://zrilich.pythonanywhere.com/api/v1/my-suggestions', data, config
+                "https://zrilich.pythonanywhere.com/api/v1/my-suggestions", data, config
             );
             if (res.data.suggestions) {
                 setData(res.data.suggestions)
@@ -161,9 +161,13 @@ function MySuggestions() {
     if (state.isLoading) {
         return (
             <>
-                <div className="dashboard-component-loading">
-                    <ReactLoading type={"spin"} color={"grey"} />
-                    <h6>Loading my suggestions...</h6>
+                <div className="dashboard-component">
+                    <h1>My suggestions</h1>
+                    <hr />
+                    <div className="dashboard-component-loading">
+                        <ReactLoading type={"spin"} color={"grey"} />
+                        <h6>Loading my suggestions...</h6>
+                    </div>
                 </div>
             </>
         )

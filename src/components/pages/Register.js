@@ -273,7 +273,7 @@ function Register(props) {
                             </Col>
                         </Form.Row>
                         {props.error && <Alert variant="danger">{props.error.error}</Alert>}
-                        <Button onClick={registerSubmit} variant="primary" type="submit">
+                        <Button onClick={registerSubmit} variant="outline-primary" type="submit">
                             Register
                         </Button>
                         <p>If you already own an account login <Alert.Link href='/login'>here</Alert.Link>.</p>
