@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TITLE = "Home";
+const TITLE = "Truth or Drink";
 
 class Home extends React.Component {
     constructor(props) {
