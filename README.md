@@ -1,4 +1,4 @@
-# Truth or Drink app
+# Truth or Drink web app
 
 This is a fan made/student project on which I learnt React.
 
