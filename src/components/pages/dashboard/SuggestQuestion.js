@@ -5,12 +5,21 @@ import { Form, Button, Col, Alert, Fade } from 'react-bootstrap';
 
 const TITLE = "Suggest question";
 
-function SuggestQuestion(props) {
+function SuggestQuestion() {
 
     const [twoPart, setTwoPart] = useState(true);
     const [sending, setSending] = useState(false);
     const [sent, setSent] = useState(false);
     const [response, setResponse] = useState();
+    const [oneQuestion, setOneQuestion] = useState({
+        question: "",
+        category: ""
+    });
+    const [twoQuestions, setTwoQuestions] = useState({
+        question1: "",
+        question2: "",
+        category: ""
+    });
 
     useEffect(() => {
         document.title = TITLE;
@@ -25,46 +34,54 @@ function SuggestQuestion(props) {
     };
 
     const sendOneQuestion = async () => {
-        if (!sent) {
+        if (oneQuestion.question !== "" && oneQuestion.category !== "") {
             setSending(true);
             const data = {
-                "question": document.getElementById("question").value,
-                "category": document.getElementById("category1").value,
+                "question": oneQuestion.question,
+                "category": oneQuestion.category,
                 "token": localStorage.token
             };
             const config = {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json', 'Accept': 'application/json',}
+                method: "POST",
+                headers: {"Content-Type": "application/json", "Accept": "application/json",}
             };
             const resp = await axios.post(
-                'https://zrilich.pythonanywhere.com/api/v1/send-one-question', data, config
+                "https://zrilich.pythonanywhere.com/api/v1/send-one-question", data, config
             );
             setSending(false);
             setResponse(resp.data);
-            setSent(true)
+            setSent(true);
+            setOneQuestion({
+                question: "",
+                category: ""
+            });
         }
-        
     };
 
     const sendTwoQuestion = async () => {
-        if (!sent) {
+        if (twoQuestions.question1 !== "" && twoQuestions.question2 !== "" && twoQuestions.category !== "") {
             setSending(true);
             const data = {
-                "question1": document.getElementById("question1").value,
-                "question2": document.getElementById("question2").value,
-                "category": document.getElementById("category").value,
+                "question1": twoQuestions.question1,
+                "question2": twoQuestions.question2,
+                "category": twoQuestions.category,
                 "token": localStorage.token
             };
             const config = {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json', 'Accept': 'application/json',}
+                method: "POST",
+                headers: {"Content-Type": "application/json", "Accept": "application/json",}
             };
             const resp = await axios.post(
-                'https://zrilich.pythonanywhere.com/api/v1/send-two-questions', data, config
+                "https://zrilich.pythonanywhere.com/api/v1/send-two-questions", data, config
             );
             setSending(false);
             setResponse(resp.data);
-            setSent(true)
+            setSent(true);
+            setTwoQuestions({
+                question1: "",
+                question2: "",
+                category: ""
+            });
         }
     };
         
@@ -117,20 +134,20 @@ function SuggestQuestion(props) {
                                 <Col md={6}>
                                     <Form.Group className="left-text">
                                         <Form.Label>First question:</Form.Label>
-                                        <Form.Control id="question1" required as="textarea" rows="3" />
+                                        <Form.Control required id="question1" as="textarea" rows="3" onChange={(e) => setTwoQuestions({...twoQuestions, question1: e.target.value})} />
                                     </Form.Group>
                                 </Col>
                                 <Col md={6}>
                                     <Form.Group className="left-text">
                                         <Form.Label>Second question:</Form.Label>
-                                        <Form.Control id="question2" required as="textarea" rows="3" />
+                                        <Form.Control required id="question2" as="textarea" rows="3" onChange={(e) => setTwoQuestions({...twoQuestions, question2: e.target.value})} />
                                     </Form.Group>
                                 </Col>
                             </Form.Row>
     
                             <Form.Group className="left-text">
                                 <Form.Label>Select category</Form.Label>
-                                <Form.Control id="category" required as="select">
+                                <Form.Control required id="category" as="select" onChange={(e) => setTwoQuestions({...twoQuestions, category: e.target.value})} >
                                     <option value="">---------</option>
                                     <option value="extraDirty">Extra Dirty</option>
                                     <option value="happyHour">Happy Hour</option>
@@ -178,12 +195,12 @@ function SuggestQuestion(props) {
                         <Form className="text-center">
                             <Form.Group className="left-text">
                                 <Form.Label>Question:</Form.Label>
-                                <Form.Control id="question" required as="textarea" rows="3" />
+                                <Form.Control required id="question" as="textarea" rows="3" onChange={(e) => setOneQuestion({...oneQuestion, question: e.target.value})} />
                             </Form.Group>
     
                             <Form.Group className="left-text">
                                 <Form.Label>Select category</Form.Label>
-                                <Form.Control id="category1" required as="select">
+                                <Form.Control required id="category1" as="select" onChange={(e) => setOneQuestion({...oneQuestion, category: e.target.value})} >
                                     <option value="">---------</option>
                                     <option value="extraDirty">Extra Dirty</option>
                                     <option value="happyHour">Happy Hour</option>

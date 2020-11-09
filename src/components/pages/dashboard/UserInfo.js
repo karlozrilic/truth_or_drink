@@ -20,8 +20,8 @@ function UserInfo() {
     const [enableSave, setEnableSave] = useState(false);
     const [edit, setEdit]= useState(true);
     const [editData, setEditData] = useState({
-        first_name: "",
-        last_name: ""
+        first_name: null,
+        last_name: null
     });
     const [message, setMessage] = useState("");
     const [sent, setSent] = useState(false);
@@ -65,8 +65,8 @@ function UserInfo() {
             setEdit(false);
         } else {
             setEditData({
-                first_name: "",
-                last_name: ""
+                first_name: null,
+                last_name: null
             });
             setEdit(true);
             setEnableSave(false);
@@ -111,8 +111,8 @@ function UserInfo() {
             } else {
                 setMessage(jwt_decode(res.data));
                 setEditData({
-                    first_name: "",
-                    last_name: ""
+                    first_name: null,
+                    last_name: null
                 });
                 setData(jwt_decode(res.data));
                 setDates({
@@ -162,8 +162,8 @@ function UserInfo() {
                     </>
                     }
                     
-                    <p>First Name: <input value={editData.first_name != "" ? editData.first_name:data.first_name} disabled={edit} onChange={firstNameChange} /></p>
-                    <p>Last Name: <input value={editData.last_name != "" ? editData.last_name:data.last_name} disabled={edit} onChange={lastNameChange} /></p>
+                    <p>First Name: <input value={editData.first_name != null ? editData.first_name:data.first_name} disabled={edit} onChange={firstNameChange} /></p>
+                    <p>Last Name: <input value={editData.last_name != null ? editData.last_name:data.last_name} disabled={edit} onChange={lastNameChange} /></p>
                     <p>Email: {data.email}</p>
                     {checkIfWithin24hrs(dates.created_at) ?
                         <>

@@ -37,14 +37,14 @@ function MySuggestions() {
             "https://zrilich.pythonanywhere.com/api/v1/my-suggestions", data, config
         );
         if (res.data.suggestions) {
-            setData(res.data.suggestions)
+            setData(res.data.suggestions);
             setState({
                 isLoading: false
-            })
+            });
         } else {
             setState({
                 isLoading: false
-            })
+            });
         }
     }
 
