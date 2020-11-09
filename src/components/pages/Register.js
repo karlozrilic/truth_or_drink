@@ -112,7 +112,6 @@ function Register(props) {
                     isClear: false
                 });
             } else {
-                
                 setClear({
                     isClear: true
                 });
@@ -205,7 +204,7 @@ function Register(props) {
                 <>
                     <div className="question">
                         <ReactLoading type={"spin"} color={"grey"} />
-                        <h6>Logging in...</h6>
+                        <h6>Registering...</h6>
                     </div>
                 </>
             )

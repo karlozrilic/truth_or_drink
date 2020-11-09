@@ -90,23 +90,16 @@ function App() {
             <Route path="/logout" exact>
                 <Logout/>
             </Route>
-            
-            {valid && 
-            <>
-              <Route path="/dashboard" exact>
-                <Redirect push to="/dashboard/user-info" />
-              </Route>
-              <Route path="/dashboard/user-info" exact >
-                <Dashboard token={localStorage.token} comp={UserInfo} current={0} />
-              </Route>
-              <Route path="/dashboard/suggest-question" exact >
-                <Dashboard token={localStorage.token} comp={SuggestQuestion} current={1} />
-              </Route>
-              <Route path="/dashboard/my-suggestions" exact >
-                <Dashboard token={localStorage.token} comp={MySuggestions} current={2} />
-              </Route>
-            </>
-            }
+
+            <Route path="/dashboard/user-info" exact >
+              {valid ? <Dashboard token={localStorage.token} comp={UserInfo} current={0} />:<Route component={NotFound} /> }
+            </Route>
+            <Route path="/dashboard/suggest-question" exact >
+              {valid ? <Dashboard token={localStorage.token} comp={SuggestQuestion} current={1} />:<Route component={NotFound} /> }
+            </Route>
+            <Route path="/dashboard/my-suggestions" exact >
+              {valid ? <Dashboard token={localStorage.token} comp={MySuggestions} current={2} />:<Route component={NotFound} /> }
+            </Route>
             <Route component={NotFound} />
           </Switch>
           {footerUrls.includes(currentURL) && <div className="push"></div> }
