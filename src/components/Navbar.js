@@ -6,11 +6,11 @@ function Navbar(props) {
 
     return (
         <div className="fixed-top">
-        <BrowserView style={{position: "relative", top: 0, left: 0, width: "100%", height: "auto", padding: 5, backgroundColor: "#e8e6e4", display: "flex", justifyContent: "center" }}>
+        <MobileView style={{position: "relative", top: 0, left: 0, width: "100%", height: "auto", padding: 5, backgroundColor: "#e8e6e4", display: "flex", justifyContent: "center" }}>
             <a href="https://play.google.com/store/apps/details?id=com.truthordrinkzrilich&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
                 <img /*src={process.env.PUBLIC_URL + '/imgs/apk-banner.png'}*/ src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="150" height="58" />
             </a>
-        </BrowserView>
+        </MobileView>
         <NavbarBoot className="text-center" variant="light" bg="warning" expand="lg">
             <NavbarBoot.Brand href="/" className="navbar-logo">
                 <img src={process.env.PUBLIC_URL + '/logo-dark.webp'} /*src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg"*/ width="150" height="45" className="d-inline-block align-top" alt="" loading="lazy" />
