@@ -10,3 +10,6 @@ Links to web app:
 - [truth-or-drink-wine.vercel.app](https://truth-or-drink-wine.vercel.app)
 - [truth-or-drink.karlozrilic.vercel.app](https://truth-or-drink.karlozrilic.vercel.app)
 - [truth-or-drink-git-master.karlozrilic.vercel.app](https://truth-or-drink-git-master.karlozrilic.vercel.app)
+
+Link to android app:
+- [![Get it on Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png "Google Play")](https://play.google.com/store/apps/details?id=com.truthordrinkzrilich&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)
