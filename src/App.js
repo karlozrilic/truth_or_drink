@@ -144,7 +144,7 @@ function App() {
             <a href="https://play.google.com/store/apps/details?id=com.truthordrinkzrilich&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
                 <img /*src={process.env.PUBLIC_URL + '/imgs/apk-banner.png'}*/ src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="150" height="58" />
             </a>
-            <button onClick={hideSmartBanner} style={{borderWidth: 0, width: 40, height: 40, alignSelf: "center"}}><i class="fal fa-times-circle"></i></button>
+            <button onClick={hideSmartBanner} style={{borderWidth: 0, width: 40, height: 40, alignSelf: "center", backgroundColor: "transparent"}}><i class="fal fa-times-circle"></i></button>
         </MobileView>
         }
       </Router>
