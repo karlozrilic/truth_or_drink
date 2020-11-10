@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import moment from 'moment';
+import { BrowserView, MobileView } from "react-device-detect";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -38,12 +40,19 @@ function App() {
     localStorage.token = "";
   }
 
+  /*
+  Sada: 1605012905724
+
+  Za 15 dana: 1606308833761
+  */
+
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   }
 
   const [valid, setValid] = useState();
   const [currentURL, setCurrentURL] = useState("/");
+  const [displaySmartBanner, setDisplaySmartBanner] = useState(false);
   const checkIfUsesFooter = () => {
     setCurrentURL(window.location.pathname);
   };
@@ -51,22 +60,46 @@ function App() {
   useEffect(() => {
     setValid(checkExp);
     checkIfUsesFooter();
+    setDisplaySmartBanner(checkSmartBanner);
   }, []);
 
   const checkExp = () => {
     const date = new Date();
     const trenutno = Math.floor(new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds())/1000)
     if (localStorage.token != "") {
+      /*
       if (jwt_decode(localStorage.token).exp > trenutno) {
         return true;
       } else {
         localStorage.token = "";
         return false;
       }
+      */
+      return true;
     } else {
       return false;
     }
-  }
+  };
+
+  const checkSmartBanner = () => {
+    const sada = moment().valueOf();
+    const za15dana = localStorage.smartBannerTime;
+    if (za15dana == null || za15dana == "") {
+      return true;
+    } else {
+      if (sada >= za15dana) {
+        localStorage.smartBannerTime = null;
+        return true;
+      } else {
+        return false;
+      }
+    }
+  };
+
+  const hideSmartBanner = () => {
+    setDisplaySmartBanner(false);
+    localStorage.smartBannerTime = moment().add(15, "days").valueOf();
+  };
 
   return (
     <>
@@ -105,7 +138,15 @@ function App() {
           {footerUrls.includes(currentURL) && <div className="push"></div> }
           
         </div>
-        {footerUrls.includes(currentURL) && <Footer /> }
+        {footerUrls.includes(currentURL) && <Footer smartBanner={displaySmartBanner} /> }
+        {displaySmartBanner && footerUrls.includes(currentURL) &&
+        <MobileView style={{position: "fixed", bottom: 0, left: 0, width: "100%", height: "auto", padding: 5, backgroundColor: "#e8e6e4", display: "flex", justifyContent: "center" }}>
+            <a href="https://play.google.com/store/apps/details?id=com.truthordrinkzrilich&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1">
+                <img /*src={process.env.PUBLIC_URL + '/imgs/apk-banner.png'}*/ src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" width="150" height="58" />
+            </a>
+            <button onClick={hideSmartBanner} style={{borderWidth: 0, width: 40, height: 40, alignSelf: "center"}}><i class="fal fa-times-circle"></i></button>
+        </MobileView>
+        }
       </Router>
      
       
