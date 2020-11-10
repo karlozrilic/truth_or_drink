@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import moment from 'moment';
 import { BrowserView, MobileView } from "react-device-detect";
+import AppAds from './components/AppAds';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -108,6 +109,7 @@ function App() {
         <div className="cont">
           <Switch>
             <Route path="/" exact component={Home} />
+            <Route path="/app-ads.txt" exact component={AppAds} />
             <Route path="/extradirty" exact component={ExtraDirty} />
             <Route path="/happyhour" exact component={HappyHour} />
             <Route path="/lastcall" exact component={LastCall} />
