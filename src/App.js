@@ -104,8 +104,9 @@ function App() {
 
   return (
     <>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
       <Router forceRefresh={true}>
-        <Navbar valid={valid} />
+        {currentURL !== "/app-ads.txt" &&<Navbar valid={valid} />}
         <div className="cont">
           <Switch>
             <Route path="/" exact component={Home} />
