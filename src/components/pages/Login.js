@@ -74,8 +74,6 @@ function Login(props) {
                 isLoading: true
             })
     
-            //const { token } = result;
-            //axios.defaults.headers.common['Authorization'] = "neki token";
             const data = {
                 "email": email,
                 "password": password,
@@ -174,30 +172,33 @@ function Login(props) {
         return (
             <>
                 <div className="loginForm">
-                    <h1 className="pb-3">Login</h1>
-                        <Form className="text-center login-forma">
-                        <Form.Group className="left-text" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control id="email_input" value={email} onChange={onChangeEmail} type="email" placeholder="Enter email" />
-                            <Form.Text id="email-error" className="text-muted form-error-text">
-                            </Form.Text>
-                        </Form.Group>
+                    <div className="login-box">
+                        <h1 className="pb-3">Login</h1>
+                        <Form className="text-center">
+                            <Form.Group className="left-text" controlId="formBasicEmail">
+                                <Form.Label>Email address</Form.Label>
+                                <Form.Control id="email_input" value={email} onChange={onChangeEmail} type="email" placeholder="Enter email" />
+                                <Form.Text id="email-error" className="text-muted form-error-text">
+                                </Form.Text>
+                            </Form.Group>
     
-                        <Form.Group className="left-text" controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control id="password_input" value={password} onChange={onChangePassword} type="password" placeholder="Password" />
-                            <Form.Text id="password-error" className="text-muted form-error-text">
-                            </Form.Text>
-                        </Form.Group>
-                        <Form.Group className="left-text" controlId="formBasicCheckbox">
-                            <Form.Check /*checked={isChecked}*/ onChange={onChangeCheckbox} type="checkbox" label="Remember me" />
-                        </Form.Group>
-                        {show && <Alert variant="danger" onClose={() => setShow(false)} dismissible transition={Fade}>{props.error.error}</Alert>}
-                        <Button onClick={loginSubmit} variant="outline-primary" type="submit">
-                            Submit
-                        </Button>
-                        <p>If you don't have account yet register <Alert.Link href='/register'>here</Alert.Link>.</p>
-                    </Form>
+                            <Form.Group className="left-text" controlId="formBasicPassword">
+                                <Form.Label>Password</Form.Label>
+                                <Form.Control id="password_input" value={password} onChange={onChangePassword} type="password" placeholder="Password" />
+                                <Form.Text id="password-error" className="text-muted form-error-text">
+                                </Form.Text>
+                            </Form.Group>
+                            <Form.Group className="left-text" controlId="formBasicCheckbox">
+                                <Form.Check /*checked={isChecked}*/ onChange={onChangeCheckbox} type="checkbox" label="Remember me" />
+                            </Form.Group>
+                            {show && <Alert variant="danger" onClose={() => setShow(false)} dismissible transition={Fade}>{props.error.error}</Alert>}
+                            <Button onClick={loginSubmit} variant="outline-primary" type="submit">
+                                Login
+                            </Button>
+                            
+                        </Form>
+                    </div>
+                    <p className="below-form-text">If you don't have account yet register <Alert.Link href='/register'>here</Alert.Link>.</p>
                 </div>
             </>
         )

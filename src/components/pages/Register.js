@@ -224,59 +224,61 @@ function Register(props) {
         return (
             <>
                 <div className="registerForm">
-                    <h1 className="pb-3">Register</h1>
-                    <Form className="text-center register-forma">
-                        <Form.Row>
-                            <Col lg={4} sm={6}>
-                                <Form.Group as={Col} className="left-center p-0 left-text">
-                                    <Form.Label>First Name</Form.Label>
-                                    <Form.Control id="first_name_input" value={local.first_name} onChange={onChangeFirstName} type="email" placeholder="First Name" />
-                                    <Form.Text id="first_name_error" className="text-muted form-error-text">
-                                    </Form.Text>
-                                </Form.Group>
-                            </Col>
-                            <Col lg={4} sm={6}>
-                                <Form.Group as={Col} className="left-center p-0 left-text">
-                                    <Form.Label>Last Name</Form.Label>
-                                    <Form.Control id="last_name_input" value={local.last_name} onChange={onChangeLastName} type="email" placeholder="Last Name" />
-                                    <Form.Text id="last_name_error" className="text-muted form-error-text">
-                                    </Form.Text>
-                                </Form.Group>
-                            </Col>
-                            <Col lg={4}>
-                                <Form.Group as={Col} className="left-center p-0 left-text">
-                                    <Form.Label>Email address</Form.Label>
-                                    <Form.Control id="email_input" value={local.email} onChange={onChangeEmail} type="email" placeholder="Enter email" />
-                                    <Form.Text id="email_error" className="text-muted form-error-text">
-                                    </Form.Text>
-                                </Form.Group>
-                            </Col>
-                        </Form.Row>
+                    <div className="register-box">
+                        <h1 className="pb-3">Register</h1>
+                        <Form className="text-center">
+                            <Form.Row>
+                                <Col lg={6} md={6} sm={12}>
+                                    <Form.Group as={Col} className="left-center p-0 left-text">
+                                        <Form.Label>First Name</Form.Label>
+                                        <Form.Control id="first_name_input" value={local.first_name} onChange={onChangeFirstName} type="email" placeholder="First Name" />
+                                        <Form.Text id="first_name_error" className="text-muted form-error-text">
+                                        </Form.Text>
+                                    </Form.Group>
+                                </Col>
+                                <Col lg={6} md={6} sm={12}>
+                                    <Form.Group as={Col} className="left-center p-0 left-text">
+                                        <Form.Label>Last Name</Form.Label>
+                                        <Form.Control id="last_name_input" value={local.last_name} onChange={onChangeLastName} type="email" placeholder="Last Name" />
+                                        <Form.Text id="last_name_error" className="text-muted form-error-text">
+                                        </Form.Text>
+                                    </Form.Group>
+                                </Col>
+                                <Col lg={12}>
+                                    <Form.Group as={Col} className="left-center p-0 left-text">
+                                        <Form.Label>Email address</Form.Label>
+                                        <Form.Control id="email_input" value={local.email} onChange={onChangeEmail} type="email" placeholder="Enter email" />
+                                        <Form.Text id="email_error" className="text-muted form-error-text">
+                                        </Form.Text>
+                                    </Form.Group>
+                                </Col>
+                            </Form.Row>
     
-                        <Form.Row>
-                            <Col lg={6}>
-                                <Form.Group as={Col} className="left-center p-0 left-text">
-                                    <Form.Label>Password</Form.Label>
-                                    <Form.Control id="password_input" value={local.password} onChange={onChangePassword} type="password" placeholder="Password" />
-                                    <Form.Text id="password_error" className="text-muted form-error-text">
-                                    </Form.Text>
-                                </Form.Group>
-                            </Col>
-                            <Col lg={6}>
-                                <Form.Group as={Col} className="left-center p-0 left-text">
-                                    <Form.Label>Confirm password</Form.Label>
-                                    <Form.Control id="confirm_password_input" value={local.confirm_password} onChange={onChangeConfirmPassword} type="password" placeholder="Password confirmation" />
-                                    <Form.Text id="confirm_password_error" className="text-muted form-error-text">
-                                    </Form.Text>
-                                </Form.Group>
-                            </Col>
-                        </Form.Row>
-                        {props.error && <Alert variant="danger">{props.error.error}</Alert>}
-                        <Button onClick={registerSubmit} variant="outline-primary" type="submit">
-                            Register
-                        </Button>
-                        <p>If you already own an account login <Alert.Link href='/login'>here</Alert.Link>.</p>
-                    </Form>
+                            <Form.Row>
+                                <Col lg={6}>
+                                    <Form.Group as={Col} className="left-center p-0 left-text">
+                                        <Form.Label>Password</Form.Label>
+                                        <Form.Control id="password_input" value={local.password} onChange={onChangePassword} type="password" placeholder="Password" />
+                                        <Form.Text id="password_error" className="text-muted form-error-text">
+                                        </Form.Text>
+                                    </Form.Group>
+                                </Col>
+                                <Col lg={6}>
+                                    <Form.Group as={Col} className="left-center p-0 left-text">
+                                        <Form.Label>Confirm password</Form.Label>
+                                        <Form.Control id="confirm_password_input" value={local.confirm_password} onChange={onChangeConfirmPassword} type="password" placeholder="Password confirmation" />
+                                        <Form.Text id="confirm_password_error" className="text-muted form-error-text">
+                                        </Form.Text>
+                                    </Form.Group>
+                                </Col>
+                            </Form.Row>
+                            {props.error && <Alert variant="danger">{props.error.error}</Alert>}
+                            <Button onClick={registerSubmit} variant="outline-primary" type="submit">
+                                Register
+                            </Button>
+                        </Form>
+                    </div>
+                    <p className="below-form-text">If you already own an account login <Alert.Link href='/login'>here</Alert.Link>.</p>
                 </div>
             </>
         )
