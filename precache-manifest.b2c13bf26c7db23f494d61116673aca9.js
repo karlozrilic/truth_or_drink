@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a2c5edd83a42b126ed5c072d0b76f6ee",
+    "revision": "0365d7673907c545fe435b3421bff55e",
     "url": "/truth_or_drink/index.html"
   },
   {
-    "revision": "7e0b39cba1cd36cd32e0",
+    "revision": "0fd001b1261745bd1be1",
     "url": "/truth_or_drink/static/css/main.dbedc17c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/truth_or_drink/static/js/2.89c23305.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "7e0b39cba1cd36cd32e0",
-    "url": "/truth_or_drink/static/js/main.e0336cab.chunk.js"
+    "revision": "0fd001b1261745bd1be1",
+    "url": "/truth_or_drink/static/js/main.eba5319b.chunk.js"
   },
   {
     "revision": "a74800574cf00da9bfb7",
