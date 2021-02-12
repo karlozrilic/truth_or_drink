@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/truth_or_drink/precache-manifest.39494ce36f95d76ddecbe6b0b71165f3.js"
+  "/truth_or_drink/precache-manifest.b2c13bf26c7db23f494d61116673aca9.js"
 );
 
 self.addEventListener('message', (event) => {
