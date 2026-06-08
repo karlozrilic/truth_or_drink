@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import { Form, Button, Alert, Fade } from 'react-bootstrap';
-import jwt_decode from "jwt-decode";
-import { Redirect } from 'react-router-dom';
+import { jwtDecode } from "jwt-decode";
+import { Navigate } from 'react-router-dom';
 import ReactLoading from 'react-loading';
 
 const TITLE = "Login";
@@ -89,7 +89,7 @@ function Login(props) {
             setResult({
                 token: res.data
             });
-            if (jwt_decode(res.data).error) {
+            if (jwtDecode(res.data).error) {
                 setClear({
                     isClear: false
                 });
@@ -158,11 +158,11 @@ function Login(props) {
             )
         } else {
             if (!isClear) {
-                return <Login error={jwt_decode(token)} />
+                return <Login error={jwtDecode(token)} />
             } else {
                 return (
                     <>
-                        <Redirect push to="/dashboard/user-info" />
+                        <Navigate push to="/dashboard/user-info" />
                     </>
                 )
             }

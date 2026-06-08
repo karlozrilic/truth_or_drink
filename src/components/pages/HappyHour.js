@@ -16,7 +16,7 @@ function HappyHour() {
 
     const [current, setCurrent] = useState(0);
 
-    useEffect(async () => {
+    useEffect(() => {
         document.title = TITLE;
         const fetchData = async () => {
             const result = await axios(

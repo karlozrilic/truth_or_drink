@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import ReactLoading from 'react-loading';
 import moment from 'moment';
 import { Alert, Fade } from 'react-bootstrap';
@@ -39,10 +39,10 @@ function UserInfo() {
             const res = await axios.post(
                 "https://zrilich.pythonanywhere.com/api/v1/get-user-details", data, config
             );
-            setData(jwt_decode(res.data));
+            setData(jwtDecode(res.data));
             setDates({
-                created_at: jwt_decode(res.data).created_at,
-                updated_at: jwt_decode(res.data).updated_at
+                created_at: jwtDecode(res.data).created_at,
+                updated_at: jwtDecode(res.data).updated_at
             });
             setState({
                 isLoading: false
@@ -106,18 +106,18 @@ function UserInfo() {
             const res = await axios.post(
                 "https://zrilich.pythonanywhere.com/api/v1/update-user-info", data, config
             );
-            if (jwt_decode(res.data).error) {
-                setMessage(jwt_decode(res.data));
+            if (jwtDecode(res.data).error) {
+                setMessage(jwtDecode(res.data));
             } else {
-                setMessage(jwt_decode(res.data));
+                setMessage(jwtDecode(res.data));
                 setEditData({
                     first_name: null,
                     last_name: null
                 });
-                setData(jwt_decode(res.data));
+                setData(jwtDecode(res.data));
                 setDates({
-                    created_at: jwt_decode(res.data).created_at,
-                    updated_at: jwt_decode(res.data).updated_at
+                    created_at: jwtDecode(res.data).created_at,
+                    updated_at: jwtDecode(res.data).updated_at
                 });
                 setState({
                     isLoading: false

@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import App from './App';
 import AppAds from './components/AppAds';
 
@@ -12,7 +12,10 @@ if (window.location.pathname === "/app-ads.txt") {
   comp = <App />;
 }
 
-ReactDOM.render(
-  comp,
-  document.getElementsByTagName("BODY")[0]
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <React.StrictMode>
+    {comp}
+  </React.StrictMode>
 );

@@ -26,7 +26,7 @@ import UserInfo from './components/pages/dashboard/UserInfo';
 import SuggestQuestion from './components/pages/dashboard/SuggestQuestion';
 import MySuggestions from './components/pages/dashboard/MySuggestions';
 
-import { BrowserRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 
 function App() {
   /* fix for mobile viewport height */
@@ -90,36 +90,42 @@ function App() {
       <Router forceRefresh={true}>
         <Navbar valid={valid} />
         <div className="cont">
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/app-ads.txt" exact component={AppAds} />
-            <Route path="/extradirty" exact component={ExtraDirty} />
-            <Route path="/happyhour" exact component={HappyHour} />
-            <Route path="/lastcall" exact component={LastCall} />
-            <Route path="/ontherocks" exact component={OnTheRocks} />
-            <Route path="/how-to-play" exact component={HowToPlay}/>
-            <Route path="/categories" exact component={Categories}/>
-            <Route path="/login" exact>
-              {!valid ? <Login /> : <Redirect push to="/dashboard/user-info" />}
-            </Route>
-            <Route path="/register" exact>
-              {localStorage.token == "" ? <Register /> : <Redirect push to="/dashboard/user-info" />}
-            </Route>
-            <Route path="/logout" exact>
-                <Logout/>
-            </Route>
-
-            <Route path="/dashboard/user-info" exact >
-              {valid ? <Dashboard token={localStorage.token} comp={UserInfo} current={0} />:<Route component={NotFound} /> }
-            </Route>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/app-ads.txt" element={<AppAds />} />
+            <Route path="/extradirty" element={<ExtraDirty />} />
+            <Route path="/happyhour" element={<HappyHour />} />
+            <Route path="/lastcall" element={<LastCall />} />
+            <Route path="/ontherocks" element={<OnTheRocks />} />
+            <Route path="/how-to-play" element={<HowToPlay />}/>
+            <Route path="/categories" element={<Categories />}/>
+            <Route
+              path="/login"
+              element={
+                !valid ? <Login /> : <Navigate push to="/dashboard/user-info" />
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                localStorage.token == "" ? <Register /> : <Navigate push to="/dashboard/user-info" />
+              }
+            />
+            <Route path="/logout" element={<Logout/>} />
+            <Route
+              path="/dashboard/user-info" exact
+              element={
+                valid ? <Dashboard token={localStorage.token} comp={UserInfo} current={0} />:<Route element={<NotFound />} /> 
+              }
+            />
             <Route path="/dashboard/suggest-question" exact >
-              {valid ? <Dashboard token={localStorage.token} comp={SuggestQuestion} current={1} />:<Route component={NotFound} /> }
+              {valid ? <Dashboard token={localStorage.token} comp={SuggestQuestion} current={1} />:<Route element={<NotFound />} /> }
             </Route>
             <Route path="/dashboard/my-suggestions" exact >
-              {valid ? <Dashboard token={localStorage.token} comp={MySuggestions} current={2} />:<Route component={NotFound} /> }
+              {valid ? <Dashboard token={localStorage.token} comp={MySuggestions} current={2} />:<Route element={<NotFound />} /> }
             </Route>
-            <Route component={NotFound} />
-          </Switch>
+            <Route element={<NotFound />} />
+          </Routes>
           {footerUrls.includes(currentURL) && <div className="push"></div> }
           
         </div>

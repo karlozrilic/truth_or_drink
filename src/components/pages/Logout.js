@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactLoading from 'react-loading';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 function Logout() {
     
@@ -23,7 +23,7 @@ function Logout() {
     } else {
         return (
             <>
-                <Redirect to="/" />
+                <Navigate to="/" />
             </>
         )
     }
